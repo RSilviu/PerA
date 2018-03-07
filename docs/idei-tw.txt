@@ -1,0 +1,32 @@
+potriviri de calendare - un fel de follow la o lista de persoane favorite - observer
+rss - partea userului de la potrivirea de calendare
+
+pt fiecare user - la fiecare aplicatie, un pinpoint pe harta
+
+periodicitatea: in fiecare zi sau bifat in ce zile vrea userul
+
+REST
+
+jQuery
+
+less / sass pt css
+
+db - Oracle
+
+backend - php?
+
+jSon
+
+jade lang?
+
+codepen
+
+search bar - cu sugestii de useri (dupa username), activitati, ???? (initial doar useri)
+
+primary key la sign up este mail-ul, exista posibilitatea de account settings unde unserul isi poate pune o poza, ca sa nu apara doi useri la fel (de ex daca sunt amandoi la favorites la un alt user)
+
+sa fie responsive
+
+categorii de activitati : school, work, leisure
+
+calenderul - 
