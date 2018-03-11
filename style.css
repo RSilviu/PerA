@@ -1,0 +1,170 @@
+
+/* By default <body> has 8px margin. This one will remove the menu gap on the top, left and right page */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  background-color: #aa17d3;
+  /*display: flex;
+  flex-flow: row wrap;*/
+}
+
+/*body > * {
+  flex: 1 100%;
+}
+*/
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  color: #a505e5;
+}
+
+
+#topnav {
+  width: 100%;
+  background: #8811aa;
+  position: fixed;
+  z-index: 99;
+}
+
+#topnav > * {
+    display: inline-block;
+    margin: 10px 20px;
+}
+
+/*#topnav a {
+  color: #f9f9f9;
+}
+*/
+
+#topnav span a {
+    font-size: 17px;
+    margin-left: 5px;
+}
+
+/*#topnav a:hover {
+  color: #a505e5;
+}
+*/
+#topnav #logo {
+    font-size: 2em;
+}
+
+#topnav #search {
+    border: none;
+    width: 70%;
+    /*box-sizing: border-box;*/
+    font-size: 17px;
+    padding-top: 5px;
+    padding-left: 5px;
+    border-radius: 5px;
+}
+
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+    #topnav #search {
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+    }
+}
+
+.sidenav {
+    position: fixed;
+    top: 250px;
+    left: 30px;
+    /*background: rgba(130,130,130,.3);*/
+    background: #8811aa;
+}
+
+/*.sidenav a {
+    color: #f9f9f9;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+}
+*/
+
+.sidenav a {
+    position: relative;
+    display: block;
+    padding: 2em;
+    font-size: 17px;
+}
+
+/*.sidenav a:hover {
+  color: #a505e5;
+}
+*/
+#activities {
+    display: inline-block;    
+    width: 50%;
+    position: relative;
+    top: 150px;
+    left: 350px;
+}
+
+#activities table {
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 20px;
+}
+
+#activities table:last-child {
+    margin-bottom: 200px;
+}
+
+#activities th, td {
+  padding: 1em;
+  background: #c32aff;
+  text-align: center; 
+  word-wrap:break-word;   
+}
+
+#activities th {
+    border-bottom: 2px solid #6a0d84; 
+}
+
+#activities td:first-child {
+  border-right: 2px solid #6a0d84;
+}
+
+#activities span a {
+    font-size: 17px;
+    margin-left: 5px;
+}
+
+.short-activity th {
+    color: #000;
+}
+
+.short-activity svg {
+    color: initial;
+    margin-right: 5px;
+}
+
+.short-activity table:hover {
+    color: #fff;
+    background: #ffd;
+    opacity: .4;
+}
+
+/*#activities table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+*/
+
+/*#activities th, td {
+    padding: 10px;
+    text-align: center;    
+}*/
+

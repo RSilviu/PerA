@@ -30,3 +30,40 @@ sa fie responsive
 categorii de activitati : school, work, leisure
 
 calenderul - 
+
+
+
+
+===== idei lab 3 =====
+
+you dont need jquery (n-avem voie cu jquery)
+
+is.gd/web_css_flex - flexbox, idee de responsive
+
+-""- web_html_css - tut
+ 
+grid css - tot responsive
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
