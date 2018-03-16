@@ -1,0 +1,144 @@
+.sidenav {
+    position: fixed;
+    top: 250px;
+    left: 30px;
+    /*background: rgba(130,130,130,.3);*/
+    background: #c35ee0;
+    border-left: 2px solid #444;
+}
+
+/*.sidenav a {
+    color: #f9f9f9;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+}
+*/
+
+.sidenav a {
+    /*position: relative;*/
+    display: block;
+    padding: 2em;
+    font-size: 17px;
+}
+
+/*.sidenav a:hover {
+  color: #a505e5;
+}
+*/
+#activities {
+    display: inline-block;    
+    width: 60%;
+    position: relative;
+    top: 150px;
+    left: 350px;
+    /*margin-top: 150px;*/
+    /*margin-left: 350px;*/
+}
+
+#activities iframe {
+      width: 80%;
+}
+
+#activities table {
+  border-collapse: collapse;
+  /*border-radius: 1em;*/
+  overflow: hidden;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/*#activities :last-child {
+  margin-bottom: 50px;
+}
+*/
+#activities table {
+    margin-bottom: 20px;
+}
+
+#activities table:last-child {
+  margin-bottom: 40px;
+}
+
+#activities th, td {
+  padding: 1em;
+  background: #ebf7c3;
+  text-align: center; 
+  word-wrap: break-word;
+  font-weight: normal;   
+}
+
+#activities th {
+    border-bottom: 2px solid #6a0d84; 
+    font-size: 1.25em;
+}
+
+#activities .short-act td:first-child {
+  border-right: 2px solid #6a0d84;
+}
+
+#activities span a {
+    font-size: 17px;
+    margin-left: 10px;
+    color: #333;
+}
+
+#activities span a:hover {
+  color: #777;
+}
+
+.short-act th {
+    color: #000;
+    font-weight: normal;
+    font-size: 1.25em;
+}
+
+.short-act svg {
+    color: initial;
+    margin-right: 5px;
+}
+
+.short-act table:hover {
+    color: #333;
+    background: #ffd;
+    opacity: .4;
+}
+
+.short-act td {
+    color: #333;
+}
+
+@media all and (max-width: 600px) {
+
+    .sidenav {
+      position: static;
+      display: flex;
+      justify-content: center;
+      z-index: 1;
+      top: 184px;
+      left: 0px;
+      right: 0px;
+      order: 1;
+      border-left: none;
+      border-top: 2px solid #444;
+    }
+
+    #activities {
+      position: static;
+      width: 100%;
+      z-index: 1;
+      order: 2;
+      left: 0px;
+      right: 0px;
+      margin-top: 20px;
+    }
+
+    #activities table {
+      border-radius: 0px;
+    }
+
+    #activities iframe {
+      width: 80%;
+    }
+  }
