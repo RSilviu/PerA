@@ -1,0 +1,38 @@
+.timetable
+{
+	display: inline-block;    
+	width: 60%;
+	position: relative;
+	top: 150px;
+	left: 350px;
+}
+
+.table-row {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0px;
+}
+
+.table-row-days
+{
+	font-size: 21px;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0px;
+	margin-bottom: 15px;
+}
+
+.table-column {
+	text-align: center;
+	flex: 11%;
+	padding: 0 4px;
+	margin-bottom: 5px;
+    border-top: solid 2px purple;
+    border-bottom: solid 2px purple;
+    border-left: solid 2px purple;
+	border-color: purple;
+}
+
+.table-column:last-child {
+	border-right: solid 2px purple;
+}
