@@ -115,8 +115,7 @@ input:focus {
 
     #topnav {
       position: static;
-      flex-flow: column wrap;
-      z-index: 1;
+      flex-flow: row wrap;
     }
 
     #topnav #search {
