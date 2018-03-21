@@ -141,6 +141,11 @@
 	position: relative;
 }
 
+button:focus
+{
+	outline: none;
+}
+
 @media screen and (max-width: 1380px)
 {
 	.activities
