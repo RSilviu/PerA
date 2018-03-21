@@ -151,4 +151,64 @@ button:focus
 	{
 		width: 70%;
 	}
+
+	.day-bar
+	{
+		font-size: 7px;
+	}
+
+	.table-column {
+		text-align: center;
+		flex: 11%;
+		padding: 0;
+		margin: 0px;
+	    border: solid 1px purple;
+	    font-size: 10px;
+	}
+
+	.table-column:last-child {
+		border-right: solid 1px purple;
+	}
+
+	.table-row-days
+	{
+		font-size: 10px;
+	}
+
+	#timetable-b
+	{
+		font-size: 20px;
+	}
+
+	#bar-graph-b
+	{
+		font-size: 20px;
+	}
+
+}
+
+@media all and (max-width: 600px) {
+
+    .sidenav {
+      position: static;
+      display: flex;
+      justify-content: center;
+      z-index: 1;
+      top: 184px;
+      left: 0px;
+      right: 0px;
+      order: 1;
+      border-left: none;
+      border-top: 2px solid #444;
+    }
+
+    .activities {
+      position: static;
+      width: 100%;
+      z-index: 1;
+      order: 2;
+      left: 0px;
+      right: 0px;
+      margin-top: 20px;
+    }
 }
