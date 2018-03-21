@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PerA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./static/css/shared.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/account.css">
+    <script defer src="./static/fontawesome/fontawesome-all.js"></script>
+</head>
+<body>
+    <nav id="topnav">
+        <a id="logo" href="#">PerA</a>
+        <div id="search-div">
+            <input id="search" type="search" onkeyup="myFunction()" placeholder="search..">
+            <ul id="suggestions">
+                <li><a href="#">flaffy</a></li>
+                <li><a href="#">hordy-boy</a></li>
+                <li><a href="#">Adele</a></li>
+                  <li><a href="#">Agnes</a></li>
+
+                  <li><a href="#">Billy</a></li>
+                  <li><a href="#">Bob</a></li>
+
+                  <li><a href="#">Calvin</a></li>
+                  <li><a href="#">Christina</a></li>
+                  <li><a href="#">Cindy</a></li>
+            </ul>
+        </div>
+        <button id="notifs" type="button" data-count="3">
+            <i class="far fa-bell fa-lg"></i>
+        </button>
+        <span><i class="fas fa-cog"></i><a href="#">Settings</a></span>
+        <span><i class="fas fa-sign-out-alt"></i><a href="#">Logout</a></span>
+    </nav>
+    <h2>Account details</h2>
+    <form action="#">
+        <div id="fields">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+
+            <label for="cpwd">Current Password</label>
+            <input type="password" id="cpwd" name="cpwd">
+
+            <label for="npwd">New Password</label>
+            <input type="password" id="npwd" name="npwd">
+
+            <label for="pconf">Confirm New Password</label>
+            <input type="password" id="pconf" name="pconf">
+
+            <button type="submit">Update</button>
+        </div>
+        <div id="pic-div">
+            <div id="pic"></div>
+            <input type="file">
+        </div>
+    </form>
+    <script>
+    function myFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("suggestions");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+
+            }
+        }
+    }
+</script>
+</body>
+</html>
