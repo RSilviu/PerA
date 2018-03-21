@@ -27,6 +27,22 @@ a:hover {
   color: #333;
 }
 
+.general-button {
+    display: block;
+    margin-top: 20px;
+    /*flex-basis: 25%;*/
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    /*white-space: nowrap;*/
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid rgba(27,31,35,0.2);
+    border-radius: 0.25em;
+}
+
 input {
     padding: 0.5em;
     /*font-size: 16px;*/
@@ -106,14 +122,27 @@ input:focus {
 
 #suggestions {
   display: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
   list-style-type: none;
   z-index: 101;
 }
 
+/*#suggestions li:first-child {
+    border-top-left-radius: 0.25em;
+    border-top-right-radius: 0.25em;
+}
+
+#suggestions li:last-child {
+    border-bottom-left-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+}*/
+
 #suggestions li a {
   border: 1px solid #ddd;
   margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6;
+  background-color: #f2f2f2;
   padding: 12px;
   text-decoration: none;
   font-size: 18px;
@@ -123,6 +152,20 @@ input:focus {
 
 #suggestions li a:hover:not(.header) {
   background-color: #eee;
+}
+
+#no-result {
+  display: none;
+  z-index: 101;
+  margin-top: 10px;
+
+  border: 1px solid #ddd;
+  /*border-radius: 0.25em;*/
+  background-color: #f6f6f6;
+  padding: 12px;
+  /*text-decoration: none;*/
+  font-size: 18px;
+  color: black;
 }
 
 #notifs {
@@ -148,58 +191,16 @@ input:focus {
    /*box-shadow:0 0 1px #333;*/
 }
 
-#login-container{ 
-    width: 30%;
-
-    margin: 15% auto 0 auto;
-
-    height: 40%;
+/*#activities table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
 }
+*/
 
-.login-title
-{
-  font-size: 30px;
-  color: black;
-  line-height: 1.2;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.login-input
-{
-    width: 100%;
-    padding: 5px;
-    font-size: 25px;
-    margin-top: 10px;
-    border-color: purple;
-}
-
-.remember-me
-{
-  width: 100%;
-  padding-top: 7px;
-  padding-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-.login-button
-{
-  font-size: 20px;
-  text-align: center;
-  color: black;
-  text-transform: uppercase;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-  width: 75%;
-  padding: 15px 0;
-  background-color: purple;
-  border-radius: 7px;
-  margin:0 auto;
-}
+/*#activities th, td {
+    padding: 10px;
+    text-align: center;    
+}*/
 
 
 @media all and (max-width: 600px) {
@@ -228,18 +229,6 @@ input:focus {
 
     #search {
       text-align: center;
-    }
-
-    #login-container
-    {
-      margin: 15% auto 0 auto;
-      width: 80%;
-      height: 40%;
-    }
-
-    .login-input
-    {
-      width: 100%;
     }
 }
 

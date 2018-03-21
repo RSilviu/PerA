@@ -6,38 +6,40 @@
     <link rel="stylesheet" type="text/css" href="./static/css/shared.css">
     <link rel="stylesheet" type="text/css" href="./static/css/home.css">
     <script defer src="./static/fontawesome/fontawesome-all.js"></script>
+    <script defer src="./static/search.js"></script>
 </head>
 <body>
     <nav id="topnav">
         <a id="logo" href="home.html">PerA</a>
         <div id="search-div">
-            <input id="search" type="search" onkeyup="myFunction()" placeholder="search..">
+            <input id="search" type="search" autocomplete="off" placeholder="Search people, etc..">
             <ul id="suggestions">
-                <li><a href="#">flaffy</a></li>
-                <li><a href="#">hordy-boy</a></li>
+                <li><a href="#">Flaffy</a></li>
                 <li><a href="#">Adele</a></li>
-                  <li><a href="#">Agnes</a></li>
+                <li><a href="#">Agnes</a></li>
 
-                  <li><a href="#">Billy</a></li>
-                  <li><a href="#">Bob</a></li>
+                <li><a href="#">Billy</a></li>
+                <li><a href="#">Bob</a></li>
 
-                  <li><a href="#">Calvin</a></li>
-                  <li><a href="#">Christina</a></li>
-                  <li><a href="#">Cindy</a></li>
+                <li><a href="#">Calvin</a></li>
+                <li><a href="#">Christina</a></li>
+                <li><a href="#">Cindy</a></li>
             </ul>
+            <div id="no-result">
+            </div>
         </div>
-        <button id="notifs" type="button" data-count="3">
+        <button id="notifs" class="general-button" type="button" data-count="3">
             <i class="far fa-bell fa-lg"></i>
         </button>
         <span><i class="fas fa-cog"></i><a href="account.html">Settings</a></span>
-        <span><i class="fas fa-sign-out-alt"></i><a href="#">Logout</a></span>
+        <span><i class="fas fa-sign-out-alt"></i><a href="login.html">Logout</a></span>
     </nav>
     <div class="sidenav">
       <a href="activities.html">My Activities</a>
       <a href="#">Others</a>
     </div>
     <div id="activities">
-        <a class="short-act" href="#details">
+        <a class="short-act" href="#">
             <table>
                 <tr>
                     <th colspan="2">cursa cu trotineta</th>
@@ -61,26 +63,15 @@
                 </td>
             </tr>
             <tr>
-                <td><span><i class="far fa-clock"></i><a href="#hello">joi, 2-4 pm</a></span></td>
+                <td><span><i class="far fa-clock"></i><a href="#">joi, 2-4 pm</a></span></td>
             </tr>
             <tr>
-                <td><span><i class="fas fa-redo"></i><a href="#hello">some frequency</a></span></td>
+                <td><span><i class="fas fa-redo"></i><a href="#">some frequency</a></span></td>
             </tr>
             <tr>
-                <td><span><i class="fas fa-map-marker-alt"></i><a href="#bye">FII</a></span></td>
+                <td><span><i class="fas fa-map-marker-alt"></i><a href="#">FII</a></span></td>
             </tr>
         </table>
-<!--         <table>
-            <tr>
-                <th colspan="2">somn</th>
-            </tr>
-            <tr>
-                <td><span><i class="far fa-clock"></i><a href="#hello">diseara, 11pm-7am</a></span></td>
-                <td><span><i class="fas fa-map-marker-alt"></i><a href="#bye">acasa</a></span></td>
-            </tr>
-        </table>
- -->        
-        
     </div>
 </body>
 </html>
