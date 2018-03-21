@@ -10,8 +10,25 @@
 <body>
     <nav id="topnav">
         <a id="logo" href="#">PerA</a>
-        <input id="search" type="search" placeholder="search..">
-        <a id="notifs" href="#latest"><i class="far fa-bell fa-lg"></i></a>
+        <div id="search-div">
+            <input id="search" type="search" onkeyup="myFunction()" placeholder="search..">
+            <ul id="suggestions">
+                <li><a href="#">flaffy</a></li>
+                <li><a href="#">hordy-boy</a></li>
+                <li><a href="#">Adele</a></li>
+                  <li><a href="#">Agnes</a></li>
+
+                  <li><a href="#">Billy</a></li>
+                  <li><a href="#">Bob</a></li>
+
+                  <li><a href="#">Calvin</a></li>
+                  <li><a href="#">Christina</a></li>
+                  <li><a href="#">Cindy</a></li>
+            </ul>
+        </div>
+        <button id="notifs" type="button" data-count="3">
+            <i class="far fa-bell fa-lg"></i>
+        </button>
         <span><i class="fas fa-cog"></i><a href="#">Settings</a></span>
         <span><i class="fas fa-sign-out-alt"></i><a href="#">Logout</a></span>
     </nav>
@@ -46,5 +63,23 @@
             <input type="file">
         </div>
     </form>
+    <script>
+    function myFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("suggestions");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+
+            }
+        }
+    }
+</script>
 </body>
 </html>
