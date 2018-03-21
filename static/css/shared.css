@@ -72,28 +72,6 @@ input:focus {
 }
 */
 
-#notifs {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  position: relative;
-}
-
-#notifs:after {
-   content: attr(data-count);
-   position: absolute;
-   top: -3px;
-   right: -3px;
-   font-size: .9em;
-   background: #a505e5;
-   color: #fff;
-   width: 18px;
-   height: 18px;
-   text-align: center;
-   line-height:18px;
-   border-radius: 50%;
-   /*box-shadow:0 0 1px #333;*/
-}
 
 #topnav span a {
     font-size: 17px;
@@ -148,10 +126,27 @@ input:focus {
 }
 
 #notifs {
+  background: transparent;
+  border: none;
   cursor: pointer;
+  position: relative;
 }
 
-
+#notifs:after {
+   content: attr(data-count);
+   position: absolute;
+   top: -3px;
+   right: -3px;
+   font-size: .9em;
+   background: #a505e5;
+   color: #fff;
+   width: 18px;
+   height: 18px;
+   text-align: center;
+   line-height:18px;
+   border-radius: 50%;
+   /*box-shadow:0 0 1px #333;*/
+}
 
 @media all and (max-width: 600px) {
     
