@@ -111,7 +111,12 @@
 	position: relative;
 	top: 150px;
 	left: 350px;
-	/*border: solid red 10px;*/
+	max-width: 1167;
+	overflow: auto;
+    overflow-x: hidden;
+    asdasd
+    font-size-adjust: asdasd
+    
 }
 
 #timetable-b
