@@ -48,7 +48,6 @@
 	width: 100%;
 	position: relative;
 	top: 150px;
-	/*left: 350px;*/
 	height: 386px;
 }
 
@@ -129,4 +128,12 @@
 	font-size: 50px;
 	border-radius: 50px;
 	position: relative;
+}
+
+@media screen and (max-width: 1380px)
+{
+	.activities
+	{
+		width: 70%;
+	}
 }
