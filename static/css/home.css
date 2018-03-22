@@ -39,6 +39,9 @@
 
 #activities iframe {
       width: 80%;
+      height: 250px;
+      /*frameborder: 0;*/
+      border: 0px;
 }
 
 #activities table {
