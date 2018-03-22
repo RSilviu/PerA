@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PerA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./static/css/shared.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/home.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/others.css">
+
+    <script defer src="./static/fontawesome/fontawesome-all.js"></script>
+    <script defer src="./static/search.js"></script>
+</head>
+<body>
+    <nav id="topnav">
+        <a id="logo" href="home.html">PerA</a>
+        <div id="search-div">
+            <input id="search" type="search" autocomplete="off" placeholder="Search people, etc..">
+            <ul id="suggestions">
+                <li><a href="#">Flaffy</a></li>
+                <li><a href="#">Adele</a></li>
+                <li><a href="#">Agnes</a></li>
+
+                <li><a href="#">Billy</a></li>
+                <li><a href="#">Bob</a></li>
+
+                <li><a href="#">Calvin</a></li>
+                <li><a href="#">Christina</a></li>
+                <li><a href="#">Cindy</a></li>
+            </ul>
+            <div id="no-result">
+            </div>
+        </div>
+        <button id="notifs" class="general-button" type="button" data-count="3">
+            <i class="far fa-bell fa-lg"></i>
+        </button>
+        <span><i class="fas fa-cog"></i><a href="account.html">Settings</a></span>
+        <span><i class="fas fa-sign-out-alt"></i><a href="login.html">Logout</a></span>
+    </nav>
+    <div class="sidenav">
+      <a href="activities.html">My Activities</a>
+      <a href="#">Others</a>
+    </div>
+    <div id="activities">
+        <a class="short-act" href="#">
+            <table>
+                <tr>
+                    <th colspan="2">Adele</th>
+                </tr>
+                <tr>
+                    <td>plimbare pe Copou</td>
+                    <td><span><i class="far fa-clock"></i>joi, 6-7 am</span></td>
+                </tr>
+            </table>
+        </a>
+        <a class="short-act" href="#">
+            <table>
+                <tr>
+                    <th colspan="2">Bob</th>
+                </tr>
+                <tr>
+                    <td>lucru la proiect</td>
+                    <td><span><i class="far fa-clock"></i>miercuri, 10-12 am</span></td>
+                </tr>
+            </table>
+        </a>
+        <a class="short-act" href="#">
+            <table>
+                <tr>
+                    <th colspan="2">Alex</th>
+                </tr>
+                <tr>
+                    <td>excursie</td>
+                    <td><span><i class="far fa-clock"></i>duminica, 14-16 pm</span></td>
+                </tr>
+            </table>
+        </a>
+    </div>
+    <footer>
+        <i class="far fa-copyright"></i> FII 2018 - All Rights Reserved
+    </footer>    
+
+<!--     <footer>
+        <section class="footer-bottom-section flex-rw">
+            <div class="footer-bottom-wrapper">   
+                <i class="far fa-copyright"></i>
+                    2015 Pavilion in <address class="footer-address" role="company address">Bergen, NY</address>
+                    <span class="footer-bottom-rights"> - All Rights Reserved - </span>
+            </div>
+            <div class="footer-bottom-wrapper">
+                <a href="#" class="generic-anchor" rel="nofollow">Terms</a> | <a href="#" class="generic-anchor" rel="nofollow">Privacy</a>
+            </div>
+        </section>
+    </footer>
+ --></body>
+</html>
