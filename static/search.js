@@ -9,7 +9,7 @@ function showSuggestions() {
         filter = input.value.toUpperCase();
         if (filter === "") {
             hideSuggestions();
-            return True;
+            return true;
         }
         ul = document.getElementById("suggestions");
         li = ul.getElementsByTagName("li");
@@ -24,8 +24,9 @@ function showSuggestions() {
 
             }
         }
+        noresDiv = document.getElementById("no-result");
+
         if (matches === 0) {
-            noresDiv = document.getElementById("no-result");
             noresDiv.innerHTML = "No results for <b>" + input.value +"</b>";
             noresDiv.style.display = "block";
         }
