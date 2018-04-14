@@ -192,64 +192,17 @@ input:focus {
    /*box-shadow:0 0 1px #333;*/
 }
 
-/*#activities table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-*/
-
-/*#activities th, td {
-    padding: 10px;
-    text-align: center;    
-}*/
-
-/*footer {
-  flex-basis: 100%;
-  order: 10;
-  margin-top: 20px;
-  background-color: purple;
-}*/
-
 footer {
-   /*left: 0;*/
-   /*bottom: 0;*/
-   
-   margin-top: 400px;
+   position: fixed;
+   bottom: 0;
    padding-top: 10px;
    padding-bottom: 10px;
    width: 100%;
    background-color: #ce58ef;
    color: white;
    text-align: center;
+   z-index: 999;
 }
-
-/*footer {
-  width: 100%;
-  margin-top: auto;
-}
-
-.flex-rw {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.footer-bottom-section {
-  width: 100%;
-  padding: 10px;
-  border-top: 1px solid $primary-line-color;
-  margin-top: 10px;
-}
-.footer-bottom-section > div:first-child {
-  margin-right: auto;
-}
-.footer-bottom-wrapper {
-  font-size: 1.5em;
-  color: #fff;
-}
-.footer-address {
-  display: inline;
-  font-style: normal;
-}*/
 
 
 @media all and (max-width: 600px) {
@@ -258,14 +211,7 @@ footer {
      flex-flow: column nowrap;
      width: 100%;
      height: 100%;
-     /*position: relative;*/
-     /*align-items: center;*/
    }
-
-    body > * {
-      /*position: static;*/
-      top: 0px;
-    }
 
     #topnav {
       position: static;
@@ -284,15 +230,3 @@ footer {
       order: 5;
     }
 }
-
-
-/*#activities table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-*/
-
-/*#activities th, td {
-    padding: 10px;
-    text-align: center;    
-}*/
