@@ -40,8 +40,53 @@
       <a href="others.html">Others</a>
     </div>
     <div id="activities">
-        <a class="short-act" href="#">
-            <table>
+        <!-- <a href="#"> -->
+            <ul class="short-act">
+                <li>TW</li>
+                <li>Sa se dezvolte o aplicatie Web ce permite utilizatorilor autentificati sa realizeze managementul activitatilor personale. Fiecare utilizator va preciza tipuri de activitati si datele aferente acestora: nume, descriere, localizare, perioada de desfasurare, periodicitatea etc.</li>
+                <li><span><i class="far fa-clock"></i>joi, 6-7 am</span></li>
+                <li><span><i class="fas fa-redo"></i>some frequency</span></li>
+                <li><span><i class="fas fa-map-marker-alt"></i>Copou</span></li>
+                <li><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.1761075498052!2d27.573612404372014!3d47.17398846310152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x193e4b6864504e2c!2sFacultatea+de+Informatic%C4%83!5e0!3m2!1sro!2sro!4v1521061875366" allowfullscreen></iframe></li>
+                <li class="act-details">View details</li>
+            </ul>
+            <ul class="short-act">
+                <li>Tehnologii Web</li>
+                <li>Sa se dezvolte o aplicatie Web ce permite utilizatorilor autentificati sa realizeze managementul activitatilor personale. Fiecare utilizator va preciza tipuri de activitati si datele aferente acestora: nume, descriere, localizare, perioada de desfasurare, periodicitatea etc.</li>
+                <li><span><i class="far fa-clock"></i>joi, 6-7 am</span></li>
+                <li><span><i class="fas fa-redo"></i>some frequency</span></li>
+                <li><span><i class="fas fa-map-marker-alt"></i>Copou</span></li>
+                <li><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.1761075498052!2d27.573612404372014!3d47.17398846310152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x193e4b6864504e2c!2sFacultatea+de+Informatic%C4%83!5e0!3m2!1sro!2sro!4v1521061875366" allowfullscreen></iframe></li>
+                <li class="act-details">View details</li>
+            </ul>
+    </div>
+    <footer>
+        <i class="far fa-copyright"></i> FII 2018 - All Rights Reserved
+    </footer>    
+    <script>
+        var lis = document.querySelectorAll('.act-details');
+        for (let li of lis) {
+            li.onclick = function() {
+                var cls, action;
+                var parentClass = this.parentNode.className;
+                if (parentClass === 'short-act') {
+                    cls = 'long-act';
+                    action = 'Hide';
+                }
+                else if (parentClass === 'long-act') {
+                    cls = 'short-act';
+                    action = 'View';
+                }
+                this.parentNode.className = cls;
+                this.innerHTML = action + ' details';
+            };   
+        }
+    </script>
+    </body>
+</html>
+
+
+<!-- <table>
                 <tr>
                     <th colspan="2">cursa cu trotineta</th>
                 </tr>
@@ -49,46 +94,6 @@
                     <td><span><i class="far fa-clock"></i>joi, 6-7 am</span></td>
                     <td><span><i class="fas fa-map-marker-alt"></i>Copou</span></td>
                 </tr>
-            </table>
-        </a>
-        <table class="long-act">
-            <tr>
-                <th>tw</th>
-            </tr>
-            <tr>
-                <td>
-                    Sa se dezvolte o aplicatie Web ce permite utilizatorilor autentificati sa realizeze managementul activitatilor personale. Fiecare utilizator va preciza tipuri de activitati si datele aferente acestora: nume, descriere, localizare, perioada de desfasurare, periodicitatea etc.
-                </td>
-                <td rowspan="4">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.1761075498052!2d27.573612404372014!3d47.17398846310152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x193e4b6864504e2c!2sFacultatea+de+Informatic%C4%83!5e0!3m2!1sro!2sro!4v1521061875366" allowfullscreen></iframe>
-                </td>
-            </tr>
-            <tr>
-                <td><span><i class="far fa-clock"></i><a href="#">joi, 2-4 pm</a></span></td>
-            </tr>
-            <tr>
-                <td><span><i class="fas fa-redo"></i><a href="#">some frequency</a></span></td>
-            </tr>
-            <tr>
-                <td><span><i class="fas fa-map-marker-alt"></i><a href="#">FII</a></span></td>
-            </tr>
-        </table>
-    </div>
-    <footer>
-        <i class="far fa-copyright"></i> FII 2018 - All Rights Reserved
-    </footer>    
+            </table> -->
 
-<!--     <footer>
-        <section class="footer-bottom-section flex-rw">
-            <div class="footer-bottom-wrapper">   
-                <i class="far fa-copyright"></i>
-                    2015 Pavilion in <address class="footer-address" role="company address">Bergen, NY</address>
-                    <span class="footer-bottom-rights"> - All Rights Reserved - </span>
-            </div>
-            <div class="footer-bottom-wrapper">
-                <a href="#" class="generic-anchor" rel="nofollow">Terms</a> | <a href="#" class="generic-anchor" rel="nofollow">Privacy</a>
-            </div>
-        </section>
-    </footer>
- --></body>
-</html>
+
