@@ -1,0 +1,60 @@
+------
+|PerA|
+------
+
+Fisa cerinte
+
+// inspiratie: http://www.cse.chalmers.se/~feldt/courses/reqeng/examples/srs_example_2010_group2.pdf
+
+
+Cerinte functionale
+--------------------
+
+1.
+Titlu: inregistrarea unui cont de utilizator
+Descriere: completarea datelor necesare intr-un form
+Motiv: administrarea facila a clientilor aplicatiei
+Dependinte: -
+
+
+2.
+Titlu: autentificarea unui utilizator in aplicatie
+Descriere: utilizatorul introduce numele si parola intr-un form
+Motiv: identificarea clientului
+Dependinte: 1
+
+...
+
+
+Cerinte de performanta
+-----------------------
+
+1.
+Titlu: utilizare facila a calendarului de activitati
+Descriere: calendarul de activitati al clientului ofera o interfata intuitiva, simplu de folosit
+Motiv: conformarea cu normele UX
+Dependinte: -
+
+...
+
+
+Cerinte de securitate
+-----------------------
+
+1.
+Titlu: protectie impotriva atacurilor de tip xss
+Modalitate: procesare input utilizator
+
+...
+
+
+
+
+
+
+
+
+
+
+
+
