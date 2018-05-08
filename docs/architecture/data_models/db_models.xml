@@ -1,0 +1,25 @@
+<diagram program="umletino" version="14.2"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>510</x><y>120</y><w>210</w><h>180</h></coordinates><panel_attributes>Activities
+--
+id: Int
+userId: Int
+type: String
+name: String
+description: String
+location: String
+startDate: Date
+endDate: Date
+periodicity: String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>140</x><y>160</y><w>210</w><h>100</h></coordinates><panel_attributes>Users
+--
+id: Int
+name: String
+email: String
+secret: String (pwd hash)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>410</y><w>210</w><h>70</h></coordinates><panel_attributes>Following
+--
+followerId: Int
+followedId: Int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>350</x><y>160</y><w>170</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=0..1
+m2=0..*
+manage &gt;</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>220</y><w>160</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;.
+&lt;&lt;FK&gt;&gt;
+id</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element></diagram>
