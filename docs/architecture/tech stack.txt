@@ -2,14 +2,16 @@
 
 Layered architecture : 3 tier, repository pattern, mvc?
 Microservices
-Design patterns, i.e 
+Design patterns : Observer,
 
 
 AJAX
 
 XAMPP stack
 
-Google Maps APIs
+Google APIs: Maps, Geocoding
+
+Data generator
 
 RSS feeds
 
