@@ -1,20 +1,17 @@
 
 
-Layered architecture : 3 tier, repository pattern, mvc?
-Microservices
-Design patterns : Observer,
+General architecture : layered / mvc
 
+Design patterns : Observer
 
-AJAX
+Client side: AJAX
 
-XAMPP stack
+Server side: XAMPP stack
 
-Google APIs: Maps, Geocoding
+Microservices: Google APIs (Maps, Geocoding)
 
-Data generator
+Db data source: Data generator
 
 RSS feeds
 
 Caching - for stats, calendar matchings; reduces db overhead
-
-Calendar UI integration (?)

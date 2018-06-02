@@ -23,7 +23,7 @@ Descriere: utilizatorul introduce numele si parola intr-un form
 Motiv: identificarea clientului
 Dependinte: 1
 
-...
+
 
 
 Cerinte de performanta
@@ -35,7 +35,6 @@ Descriere: calendarul de activitati al clientului ofera o interfata intuitiva, s
 Motiv: conformarea cu normele UX
 Dependinte: -
 
-...
 
 
 Cerinte de securitate
@@ -45,7 +44,6 @@ Cerinte de securitate
 Titlu: protectie impotriva atacurilor de tip xss
 Modalitate: procesare input utilizator
 
-...
 
 
 
