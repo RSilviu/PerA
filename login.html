@@ -18,33 +18,34 @@
     	<div class="login-title">
     		log in
     	</div>
+		<form action="auth/login.php" method="post">
+			<input type="email" name="Email" placeholder="Email" class="login-input">
+			<input type="password" name="Password" placeholder="Password" class="login-input">
 
-    	<input type="text" name="Username" placeholder="Username" class="login-input">
-    	<input type="password" name="Password" placeholder="Password" class="login-input">
+			<div class="remember-me">
+				<div>
+					<input id="Input" type="checkbox" name="Remember-me">
+					<label class="" for="Input">
+						Remember me
+					</label>
+				</div>
 
-    	<div class="remember-me">
-    		<div>
-    			<input id="Input" type="checkbox" name="Remember-me">
-				<label class="" for="Input">
-					Remember me
-				</label>
+				<div>
+					<a href="signup.html" style="text-align: right; position: relative; right: 0;">
+						Sign Up
+					</a>
+				</div>
 			</div>
-
-			<div>
-				<a href="signup.html" style="text-align: right; position: relative; right: 0;">
-					Sign Up
+			<br><br>
+			<input type="submit" value="login">
+			<!--<div style="width: 100%;">
+				<a href="home.html">
+					<div class="login-button">
+					Submit
+					</div>
 				</a>
-			</div>
-    	</div>
-
-		<div style="width: 100%;">
-            <a href="home.html">
-    		    <div class="login-button">
-    			Submit
-    	        </div>
-            </a>
-    	</div>
-
+			</div>-->
+		</form>
     </div>
 
 </body>
