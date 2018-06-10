@@ -14,7 +14,6 @@ $data = [$_POST['Username'], $_POST['Email'], $secret];
 $insert = 'INSERT INTO users VALUES (NULL,?,?,?)';
 try {
     $pdo->prepare($insert)->execute($data);
-
 } catch (PDOException $e) {
     $existingkey = "Integrity constraint violation: 1062 Duplicate entry";
     if (strpos($e->getMessage(), $existingkey) !== FALSE) {
