@@ -23,7 +23,7 @@
     font-size: 17px;
 }
 
-#activities {
+.content {
     display: inline-block;    
     width: 40%;
     position: relative;
@@ -32,8 +32,11 @@
     margin-bottom: 200px;
 }
 
+.hidden {
+    display: none;
+}
 
-#activities ul {
+.content ul {
   -webkit-padding-start: 0px;
   width: 100%;
   background: #ebf7c3;
@@ -118,6 +121,7 @@ span svg {
     border: 0px;
 }
 
+
 @media all and (max-width: 600px) {
 
     .sidenav {
@@ -133,7 +137,7 @@ span svg {
       border-top: 2px solid #444;
     }
 
-    #activities {
+    .content {
       position: static;
       width: 80%;
       margin: auto;
@@ -145,3 +149,4 @@ span svg {
       margin-top: 20px;
     }
   }
+

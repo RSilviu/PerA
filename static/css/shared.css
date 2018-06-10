@@ -18,6 +18,7 @@ body {
 }
 */
 
+
 a {
   text-decoration: none;
   color: #fff;
@@ -121,7 +122,6 @@ input:focus {
 }
 
 #suggestions {
-  display: none;
   margin: 0;
   padding: 0;
   margin-top: 10px;
@@ -139,15 +139,18 @@ input:focus {
     border-bottom-right-radius: 0.25em;
 }*/
 
-#suggestions li a {
+#suggestions li {
   border: 1px solid #ddd;
   margin-top: -1px; /* Prevent double borders */
-  background-color: #f2f2f2;
+  background-color: #fff;
   padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   color: black;
-  display: block
+}
+
+#suggestions li a {
+    text-decoration: none;
+    color: black;
 }
 
 #suggestions li a:hover:not(.header) {
@@ -155,8 +158,6 @@ input:focus {
 }
 
 #no-result {
-  display: none;
-  z-index: 101;
   margin-top: 10px;
   word-wrap: break-word;
 
