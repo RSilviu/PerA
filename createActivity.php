@@ -1,9 +1,10 @@
 <?php
 session_start();
 include "routes.php";
-if (! isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] !== ACTIVITY_ROUTE) {
-    die();
-}
+// if (! isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] !== ACTIVITY_ROUTE) {
+//     die();
+// }
+
 $userId = $_SESSION['uid'];
 $type = $_POST['type'];
 $name = $_POST['name'];
@@ -14,21 +15,22 @@ $placeId = $_POST['place_id'];
 $lat = $_POST['lat'];
 $lng = $_POST['lng'];
 
+$day = $_POST['day'];
+$hour = $_POST['hour'];
+
 /*$startDate = str_replace('T', ' ', $_POST['startDate']);
 $endDate = str_replace('T', ' ', $_POST['endDate']);*/
 $periodicity = $_POST['periodicity'];
 
-
-
 include 'db/conn.php';
 
-$insert = 'INSERT INTO activities VALUES (null, 1, ?, ?, ?, ?, ?)';
+$insert = 'INSERT INTO activities VALUES (null, 1, ?, ?, ?, ?, ?, ?, ?)';
 
 // echo 'tz used by server: '.date_default_timezone_get().'<br><br>';
 //$tzName = timezone_name_from_abbr('', $tzMinutes*60);
 //date_default_timezone_set('Europe/Bucharest');
 
-$values = [ $type, $name, $desc, $placeId, $periodicity ];
+$values = [ $type, $name, $desc, $placeId, $periodicity, $hour, $day ];
 try {
     $pdo->prepare($insert)->execute($values);
     echo "activity has been added".'<br><br>';
@@ -51,6 +53,9 @@ echo 'place: '.$placeName.'<br>';
 echo 'place_id: '.$placeId.'<br>';
 echo 'lat: '.$lat.'<br>';
 echo 'lng: '.$lng.'<br>';
+
+echo 'name: '.$hour.'<br>';
+echo 'desc: '.$day.'<br>';
 
 // echo 'startDate: '.(new DateTime("@$startDate"))->format('Y-m-d H:i').'<br>';
 // echo 'endDate: '.(new DateTime("@$endDate"))->format('Y-m-d H:i').'<br>';

@@ -71,8 +71,6 @@
         <input type="hidden" name="lat" id="lat">
         <input type="hidden" name="lng" id="lng">
 
-
-     
         <label for="periodicity">periodicity</label>
         <select name="periodicity" id="periodicity">
             <option value="0" selected>None</option>
@@ -82,13 +80,17 @@
         <br><br>
         <input type="submit" value="Submit">
         <br><br>
+        <input id="hour" name="hour" type="hidden">
+        <input id="day" name="day" type="hidden">
     </div>
     </form>
     <script>
-        var tz_offset_minutes = new Date().getTimezoneOffset();
-        document.getElementById('tz').value = (tz_offset_minutes === 0 ? 0 : -tz_offset_minutes);
+        // var tz_offset_minutes = new Date().getTimezoneOffset();
+        // document.getElementById('tz').value = (tz_offset_minutes === 0 ? 0 : -tz_offset_minutes);
 
         var autocomplete;
+        document.getElementById('hour').value = getHourParameter()
+        document.getElementById('day').value = getDayParameter()
 
         function initAutocomplete() {
             // Create the autocomplete object, restricting the search to geographical
@@ -121,6 +123,31 @@
                     autocomplete.setBounds(circle.getBounds());
                 });
             }
+        }
+
+        function getDayParameter() {
+            var day = ''
+            document.location.search.split('?')[1].split(',').forEach(function(value) {
+                var param = value.split('=')
+                if(param[0] == 'day') {
+                    day = param[1]
+                }
+            })
+            console.log("day -> ", day)
+            return day
+        }
+
+        
+        function getHourParameter() {
+            var hour = ''
+            document.location.search.split('?')[1].split(',').forEach(function(value) {
+                var param = value.split('=')
+                if(param[0] == 'hour') {
+                    hour = param[1]
+                }
+            })
+            console.log("hour!", hour)
+            return hour
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $_ENV['MAPS_API_KEY'] ?>&libraries=places&callback=initAutocomplete"
