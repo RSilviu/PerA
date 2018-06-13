@@ -14,7 +14,7 @@ session_start();
     <script defer src="./static/fontawesome/fontawesome-all.js"></script>
     <script defer src="./static/activities.js"></script>
     <script defer type="module" src="js/search.js"></script>
-    <script defer src="js/activities.js"></script>
+    <script defer type="module" src="js/activities.js"></script>
 </head>
 <body>
     <nav id="topnav">
@@ -213,33 +213,33 @@ session_start();
         </div>
 
         <div id="bar-graph">
-                <div class="day">
+                <div class="day" id="Mon">
                     <div class="vertical-block-work"></div>
                     <div class="vertical-block-work"></div>
                     <div class="vertical-block-work"></div>
                     <div class="vertical-block-leisure"></div>
                 </div>
-                <div class="day">
+                <div class="day" id="Tue">
                     <div class="ny-block"></div>
                 </div>
-                <div class="day">
+                <div class="day" id="Wen">
                     <div class="ny-block"></div>
                 </div>
-                <div class="day">
+                <div class="day" id="Thu">
                     <div class="vertical-block-work"></div>
                     <div class="vertical-block-work"></div>
                     <div class="vertical-block-leisure"></div>
                     <div class="vertical-block-leisure"></div>
                     <div class="vertical-block-leisure"></div>
                 </div>
-                <div class="day">
+                <div class="day" id="Fri">
                     <div class="vertical-block-work"></div>
                     <div class="vertical-block-work"></div>
                 </div>
-                <div class="day">
+                <div class="day" id="Sat">
                     <div class="vertical-block-leisure"></div>
                 </div>
-                <div class="day">
+                <div class="day" id="Sun">
                     <div class="ny-block"></div>
                 </div>
             <div class="day-bar">Monday</div>
