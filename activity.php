@@ -22,11 +22,25 @@
             width: 20%;
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="./static/css/shared.css">
+    <script defer src="./static/fontawesome/fontawesome-all.js"></script>
     <link rel="stylesheet" href="static/css/timePicker.css">
 </head>
 <body>
+<nav id="topnav">
+        <a id="logo" href="home.html">PerA</a>
+        <div id="search-div">
+            <input id="search" type="search" autocomplete="off" placeholder="Search people, etc..">
+        </div>
+        <button id="notifs" class="general-button" type="button" data-count="3">
+            <i class="far fa-bell fa-lg"></i>
+        </button>
+        <span><i class="fas fa-cog"></i><a href="account.html">Settings</a></span>
+        <span><i class="fas fa-sign-out-alt"></i><a href="login.html">Logout</a></span>
+    </nav>
     <h3>New activity</h3>
     <form action="createActivity.php" method="post">
+        <div id="fields">
         <fieldset>
             <legend>Type</legend>
             <div>
@@ -41,26 +55,85 @@
             <br>
         </fieldset>
         <br>
+        <div>
         <label for="name">name</label>
         <input type="text" id="name" name="name" autocomplete="off">
-        <br><br>
+        </div>
+        <div>
         <label for="desc">description</label><br>
         <textarea name="description" id="desc" cols="30" rows="10"></textarea>
-        <br><br>
+        </div>
+        <div>
         <label for="autocomplete">place</label>
-        <input id="autocomplete" name="place" onFocus="geolocate()" type="text">
+        <input id="autocomplete" name="place" onFocus="geolocate()" type="text"> </div>
         <input type="hidden" name="place_id" id="place_id">
         <input type="hidden" name="lat" id="lat">
         <input type="hidden" name="lng" id="lng">
+
+
+     
+        <label for="periodicity">periodicity</label>
+        <select name="periodicity" id="periodicity">
+            <option value="0" selected>None</option>
+            <option value="1">Daily</option>
+            <option value="2">Every Two Hours</option>
+        </select>
         <br><br>
+        <input type="submit" value="Submit">
+        <br><br>
+    </div>
+    </form>
+    <script>
+        var tz_offset_minutes = new Date().getTimezoneOffset();
+        document.getElementById('tz').value = (tz_offset_minutes === 0 ? 0 : -tz_offset_minutes);
 
+        var autocomplete;
 
-      <input type="hidden" name="tz_minutes" id="tz">
+        function initAutocomplete() {
+            // Create the autocomplete object, restricting the search to geographical
+            // location types.
+            autocomplete = new google.maps.places.Autocomplete((document.getElementById('autocomplete')));
+
+            // When the user selects an address from the dropdown, populate the address
+            // fields in the form.
+            // autocomplete.addListener('place_changed', markOnMap);
+
+            autocomplete.addListener('place_changed', function () {
+                var place = autocomplete.getPlace();
+                document.getElementById('place_id').value = place.place_id;
+                document.getElementById('lat').value = place.geometry.location.lat();
+                document.getElementById('lng').value = place.geometry.location.lng();
+            });
+        }
+
+        function geolocate() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var geolocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    var circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
+            }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $_ENV['MAPS_API_KEY'] ?>&libraries=places&callback=initAutocomplete"
+            async defer></script>
+<!--    <script src="js/dateTimeCompat.js"></script>-->
+</body>
+</html>
+
+ <!-- <input type="hidden" name="tz_minutes" id="tz">
       <div class="nativeDateTimePicker">
         <label for="startDate">Starts</label>
         <input type="datetime-local" id="startDate" name="startDate">
 <!--        <span class="validity"></span>-->
-      </div>
+    <!--   </div> -->
             <!--  <p class="fallbackLabel">Starts</p>
               <div class="fallbackDateTimePicker">
                     <div>
@@ -107,11 +180,11 @@
                   </div>-->
 
 
-    <div class="nativeDateTimePicker">
+    <!-- <div class="nativeDateTimePicker">
             <label for="endDate">Ends</label>
             <input type="datetime-local" id="endDate" name="endDate">
 <!--            <span class="validity"></span>-->
-    </div>
+    <!-- </div> -->
         <!--  <p class="fallbackLabel">Ends</p>
           <div class="fallbackDateTimePicker">
                 <div>
@@ -161,58 +234,4 @@
         <!--durata: 1 zi, 1+ zile
         repeat: 1 zi - zi urmatoare, zi anume ; 1+ zile - zi anume, saptamanal, lunar, anual, ... , dinamic-->
 
-        <br><br>
-        <label for="periodicity">periodicity</label>
-        <select name="periodicity" id="periodicity">
-            <option value="0" selected>None</option>
-            <option value="1">Daily</option>
-            <option value="2">Weekly</option>
-        </select>
-        <br><br>
-        <input type="submit" value="Submit">
-        <br><br>
-    </form>
-    <script>
-        var tz_offset_minutes = new Date().getTimezoneOffset();
-        document.getElementById('tz').value = (tz_offset_minutes === 0 ? 0 : -tz_offset_minutes);
-
-        var autocomplete;
-
-        function initAutocomplete() {
-            // Create the autocomplete object, restricting the search to geographical
-            // location types.
-            autocomplete = new google.maps.places.Autocomplete((document.getElementById('autocomplete')));
-
-            // When the user selects an address from the dropdown, populate the address
-            // fields in the form.
-            // autocomplete.addListener('place_changed', markOnMap);
-
-            autocomplete.addListener('place_changed', function () {
-                var place = autocomplete.getPlace();
-                document.getElementById('place_id').value = place.place_id;
-                document.getElementById('lat').value = place.geometry.location.lat();
-                document.getElementById('lng').value = place.geometry.location.lng();
-            });
-        }
-
-        function geolocate() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var geolocation = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-                    var circle = new google.maps.Circle({
-                        center: geolocation,
-                        radius: position.coords.accuracy
-                    });
-                    autocomplete.setBounds(circle.getBounds());
-                });
-            }
-        }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $_ENV['MAPS_API_KEY'] ?>&libraries=places&callback=initAutocomplete"
-            async defer></script>
-<!--    <script src="js/dateTimeCompat.js"></script>-->
-</body>
-</html>
+        <!-- <br><br> -->
