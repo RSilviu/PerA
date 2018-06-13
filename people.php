@@ -1,8 +1,17 @@
 <?php
+session_start();
+if (! isset($_SERVER['HTTP_REFERER'])) {
+    die();
+}
+include "routes.php";
+$referer = $_SERVER['HTTP_REFERER'];
+if (! ($referer === HOME_ROUTE || $referer === ACTIVITIES_ROUTE || $referer === OTHERS_ROUTE)) {
+    die();
+}
 $person_id = $_REQUEST['id'];
 $person_name = $_REQUEST['name'];
 include "db/conn.php";
-$client_id = 1;
+$client_id = $_SESSION['uid'];
 $inGroup = false;
 $query = 'select * from following where followerId = ? and followedId = ?';
 try {

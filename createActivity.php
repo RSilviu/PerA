@@ -1,4 +1,10 @@
 <?php
+session_start();
+include "routes.php";
+if (! isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] !== ACTIVITY_ROUTE) {
+    die();
+}
+$userId = $_SESSION['uid'];
 $type = $_POST['type'];
 $name = $_POST['name'];
 $desc = $_POST['description'];
@@ -22,7 +28,7 @@ echo 'endDate: '.$endDate.'<br><br>';
 
 include 'db/conn.php';
 
-$insert = 'INSERT INTO activities VALUES (null, 1, ?, ?, ?, ?, ?, ?, ?)';
+$insert = 'INSERT INTO activities VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)';
 
 echo 'tz used by server: '.date_default_timezone_get().'<br><br>';
 //$tzName = timezone_name_from_abbr('', $tzMinutes*60);
@@ -31,7 +37,7 @@ echo 'tz used by server: '.date_default_timezone_get().'<br><br>';
 $startDate = (new DateTime($startDate))->getTimestamp();
 $endDate = (new DateTime($endDate))->getTimestamp();
 
-$values = [ $type, $name, $desc, $placeId, $startDate, $endDate, $periodicity ];
+$values = [ $userId, $type, $name, $desc, $placeId, $startDate, $endDate, $periodicity ];
 try {
     $pdo->prepare($insert)->execute($values);
     echo "activity has been added".'<br><br>';

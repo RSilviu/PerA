@@ -1,4 +1,8 @@
 <?php
+include "../routes.php";
+if (! isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] !== SIGNUP_ROUTE) {
+    die();
+}
 include '../db/conn.php';
 
 $password = $_POST['Password'];
@@ -14,12 +18,12 @@ $data = [$_POST['Username'], $_POST['Email'], $secret];
 $insert = 'INSERT INTO users VALUES (NULL,?,?,?)';
 try {
     $pdo->prepare($insert)->execute($data);
+    header('Location: '.LOGIN_ROUTE);
+    die();
 } catch (PDOException $e) {
-    $existingkey = "Integrity constraint violation: 1062 Duplicate entry";
-    if (strpos($e->getMessage(), $existingkey) !== FALSE) {
-        die($existingkey);
-        // Take some action if there is a key constraint violation, i.e. duplicate name
-    } else {
-        throw $e;
+    if ($e->errorInfo[1] === 1062) {
+        echo 'This email is in use';
+    }else {
+        echo 'Oops, error: '.$e->getMessage();
     }
 }

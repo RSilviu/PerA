@@ -1,9 +1,18 @@
 <?php
+session_start();
+if (! isset($_SERVER['HTTP_REFERER'])) {
+    die();
+}
+include "routes.php";
+$referer = $_SERVER['HTTP_REFERER'];
+if (! ($referer === HOME_ROUTE || $referer === ACTIVITIES_ROUTE || $referer === OTHERS_ROUTE)) {
+    die();
+}
 $person_id = $_REQUEST['id'];
 $person_name = $_REQUEST['name'];
-$client_id = 1;
+$client_id = $_SESSION['uid'];
 if ($person_id == $client_id) {
-    echo "You're an idiot";
+    echo "You are an idiot";
     exit();
 }
 include "db/conn.php";

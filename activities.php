@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +17,7 @@
 </head>
 <body>
     <nav id="topnav">
-        <a id="logo" href="home.html">PerA</a>
+        <a id="logo" href="home.php">PerA</a>
         <div id="search-div">
             <form id="searchForm" action="#">
                 <input name="search" id="search" type="search" autocomplete="off" placeholder="Search people, etc..">
@@ -25,11 +29,11 @@
             <i class="far fa-bell fa-lg"></i>
         </button>
         <span><i class="fas fa-cog"></i><a href="account.html">Settings</a></span>
-        <span><i class="fas fa-sign-out-alt"></i><a href="login.html">Logout</a></span>
+        <span><i class="fas fa-sign-out-alt"></i><a href="login.php">Logout</a></span>
     </nav>
     <div class="sidenav">
-      <a href="activities.html">My Activities</a>
-      <a href="others.html">Others</a>
+      <a href="activities.php">My Activities</a>
+      <a href="others.php">Others</a>
     </div>
 
     <div id="container" class="activities">
