@@ -10,5 +10,5 @@ for (var i = 1; i < activitiesTable.children.length; i++) {
 
 function onCellClicked(el) {
 	console.log("on click", el)
-	window.location = "/PerA/event.html?hour=" + el.getAttribute("hour") + ",day=" + el.getAttribute("day")
+	window.location = "/PerA/activity.php?hour=" + el.getAttribute("hour") + ",day=" + el.getAttribute("day")
 }
