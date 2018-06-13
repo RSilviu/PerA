@@ -28,7 +28,7 @@ try {
     echo "activity has been added".'<br><br>';
 
     $values = [ $placeId, $placeName, $lat, $lng ];
-    $insert = 'INSERT INTO places VALUES (?, ?)';
+    $insert = 'INSERT INTO places VALUES (?, ?, ?, ?)';
     $pdo->prepare($insert)->execute($values);
     echo "place has been added".'<br><br>';
 } catch (PDOException $e) {
