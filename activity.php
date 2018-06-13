@@ -1,4 +1,5 @@
 <?php
+    include "authCheck.php";
     const TYPE_RELAX = 0;
     const TYPE_WORK = 1;
 

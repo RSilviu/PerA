@@ -47,7 +47,11 @@
 
             // When the user selects an address from the dropdown, populate the address
             // fields in the form.
-            autocomplete.addListener('place_changed', markOnMap);
+            // autocomplete.addListener('place_changed', markOnMap);
+            autocomplete.addListener('place_changed', function () {
+                var place = autocomplete.getPlace();
+                console.log(place.place_id);
+            });
         }
 
         function markOnMap() {

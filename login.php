@@ -1,3 +1,10 @@
+<?php
+/*if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}*/
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +25,7 @@
     	<div class="login-title">
     		log in
     	</div>
-		<form action="auth/login.php" method="post">
+		<form action="auth/doLogin.php" method="post">
 			<input type="email" name="Email" placeholder="Email" class="login-input">
 			<input type="password" name="Password" placeholder="Password" class="login-input">
 
@@ -31,8 +38,8 @@
 				</div>
 
 				<div>
-					<a href="signup.html" style="text-align: right; position: relative; right: 0;">
-						Sign Up
+					<a href="signup.php" style="text-align: right; position: relative; right: 0;">
+						Sign up
 					</a>
 				</div>
 			</div>

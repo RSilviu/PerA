@@ -1,3 +1,7 @@
+<?php
+include "authCheck.php";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +12,11 @@
     <link rel="stylesheet" type="text/css" href="./static/css/home.css">
     <script defer src="./static/fontawesome/fontawesome-all.js"></script>
     <script defer type="module" src="js/search.js"></script>
-    <!--<script defer type="module" src="js/showRelation.js"></script>-->
+    <script defer type="module" src="js/showHome.js"></script>
 </head>
 <body>
     <nav id="topnav">
-        <a id="logo" href="home.html">PerA</a>
+        <a id="logo" href="home.php">PerA</a>
         <div id="search-div">
             <form id="searchForm" action="#">
                 <input name="search" id="search" type="search" autocomplete="off" placeholder="Search people, etc..">
@@ -24,11 +28,11 @@
             <i class="far fa-bell fa-lg"></i>
         </button>
         <span><i class="fas fa-cog"></i><a href="account.html">Settings</a></span>
-        <span><i class="fas fa-sign-out-alt"></i><a href="login.html">Logout</a></span>
+        <span><i class="fas fa-sign-out-alt"></i><a href="login.php">Logout</a></span>
     </nav>
     <div class="sidenav">
-      <a href="activities.html">My Activities</a>
-      <a href="others.html">Others</a>
+      <a href="activities.php">My Activities</a>
+      <a href="others.php">Others</a>
     </div>
     <div id="container" class="content">
         <div id="searchRes" class="hidden">
@@ -62,7 +66,7 @@
         <i class="far fa-copyright"></i> FII 2018 - All Rights Reserved
     </footer>
     <script>
-        document.getElementById('searchForm').addEventListener('submit', function (f) {
+        /*document.getElementById('searchForm').addEventListener('submit', function (f) {
            f.preventDefault();
 
             // ui part
@@ -77,10 +81,7 @@
            const url = 'http://localhost:8080/PerA/search.php?' + searchInput.name + '=' + searchInput.value;
            const timeout = 2000;
            requestAsync(url,  'get', timeout, handleSearch);
-        });
-
-
-
+        });*/
     </script>
     <script>
         var lis = document.querySelectorAll('.act-details');
