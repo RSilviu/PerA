@@ -214,33 +214,33 @@ session_start();
 
         <div id="bar-graph">
                 <div class="day" id="Mon">
+                    <!-- <div class="vertical-block-work"></div>
                     <div class="vertical-block-work"></div>
                     <div class="vertical-block-work"></div>
-                    <div class="vertical-block-work"></div>
-                    <div class="vertical-block-leisure"></div>
+                    <div class="vertical-block-leisure"></div> -->
                 </div>
                 <div class="day" id="Tue">
-                    <div class="ny-block"></div>
+                    <!-- <div class="ny-block"></div> -->
                 </div>
                 <div class="day" id="Wen">
-                    <div class="ny-block"></div>
+                    <!-- <div class="ny-block"></div> -->
                 </div>
                 <div class="day" id="Thu">
+                    <!-- <div class="vertical-block-work"></div>
                     <div class="vertical-block-work"></div>
-                    <div class="vertical-block-work"></div>
                     <div class="vertical-block-leisure"></div>
                     <div class="vertical-block-leisure"></div>
-                    <div class="vertical-block-leisure"></div>
+                    <div class="vertical-block-leisure"></div> -->
                 </div>
                 <div class="day" id="Fri">
-                    <div class="vertical-block-work"></div>
-                    <div class="vertical-block-work"></div>
+                    <!-- <div class="vertical-block-work"></div>
+                    <div class="vertical-block-work"></div> -->
                 </div>
                 <div class="day" id="Sat">
-                    <div class="vertical-block-leisure"></div>
+                    <!-- <div class="vertical-block-leisure"></div> -->
                 </div>
                 <div class="day" id="Sun">
-                    <div class="ny-block"></div>
+                    <!-- <div class="ny-block"></div> -->
                 </div>
             <div class="day-bar">Monday</div>
             <div class="day-bar">Tuesday</div>

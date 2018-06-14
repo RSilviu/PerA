@@ -18,7 +18,7 @@ function onCellClicked(el) {
 	window.location = "/PerA/activity.php?hour=" + el.getAttribute("hour") + ",day=" + el.getAttribute("day")
 }
 
-function retrieveActivities() {
+function retrieveActivities() { //not work
 	var url = 'http://localhost:8080/PerA/retrieveActivities.php'
 	requestAsync(url, 'get', 20000, handleRetrieve);
 }
@@ -54,13 +54,6 @@ function getElementFromTimeTable(element) {
 
 function populateStats() {
 	var graph = document.getElementById("bar-graph")
-	
-	activities.forEach(element => {
-		var stat = graph.getElementById(element.day)
-		var newCell = document.createElement("DIV")
-		newCell.className = element.type == 0 ? "vertical-block-work" : "vertical-block-leisure"
-		stat.appendChild(newCell)
-	})
 
 	graph.children.forEach(function(element) {
 		var currentAct = []
