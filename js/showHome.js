@@ -1,10 +1,6 @@
-import { requestAsync, handleResponse } from './ajax.js';
-import { markOnMap } from "./mapsUtil.js";
-
-// window.onload = showHome;
 
 function handleShowHome() {
-    handleResponse(this, onSuccess, function () {
+    handleResponse(this, onShowHomeSuccess, function () {
         alert('showHome onError!');
     });
 }
@@ -15,62 +11,63 @@ function showHome() {
     requestAsync(url, 'get', timeout, handleShowHome);
 }
 
-/*
-<li><span><i class="far fa-clock"></i>joi, 6-7 am</span></li>
-<li><span><i class="fas fa-redo"></i>some frequency</span></li>
-<li><span><i class="fas fa-map-marker-alt"></i>Copou</span></li>
-<li><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.1761075498052!2d27.573612404372014!3d47.17398846310152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x193e4b6864504e2c!2sFacultatea+de+Informatic%C4%83!5e0!3m2!1sro!2sro!4v1521061875366" allowfullscreen></iframe></li>
-<li class="act-details">View details</li>
-*/
 
+function onShowHomeSuccess(content) {
+    console.log('onSuccess in showHome...');
+    let activitiesDiv = document.getElementById('activities');
+    let activities = JSON.parse(content);
+    // activitiesDiv.innerHTML = content;
+    let mapDetails = [];
+    if (activities.length === 0) {
+        let p = document.createElement('p');
+        p.innerText = 'No activities scheduled for this week';
+        activitiesDiv.appendChild(p);
 
-function onSuccess(content) {
-    var span, i;
-    var activitiesDiv = document.getElementById('activities');
-    var activities = JSON.parse(content);
+        var addBtn = document.createElement('input');
+        addBtn.type = 'button';
+        addBtn.value = 'Add activity';
+        addBtn.onclick = function() {
+            window.location.href = 'http://localhost:8080/PerA/activity.php';
+        };
+        activitiesDiv.appendChild(addBtn);
+        return;
+    }
     for (let activity of activities) {
-        var ul = document.createElement('ul');
+        let span, i;
+        let ul = document.createElement('ul');
         ul.className = 'short-act';
 
-        var name = document.createElement('li');
+        let name = document.createElement('li');
         name.innerText = activity.act_name;
 
-        var description = document.createElement('li');
+        let description = document.createElement('li');
         description.innerText = activity.description;
 
-        var atDate = document.createElement('li');
+        let atDate = document.createElement('li');
         span = document.createElement('span');
-        i = document.createElement('i');
-        i.className = "far fa-clock";
-        span.appendChild(i);
-        span.innerText = 'ziua, ora';
+        span.innerHTML = '<i class="far fa-clock"></i>' + 'ziua, ora';
         atDate.appendChild(span);
 
-        var repeats = document.createElement('li');
+        let repeats = document.createElement('li');
         span = document.createElement('span');
-        i = document.createElement('i');
-        i.className = "fas fa-redo";
-        span.appendChild(i);
-        span.innerText = 'cum se repeta';
+        span.innerHTML = '<i class="fas fa-redo"></i>' + 'data urmatoare';
         repeats.appendChild(span);
 
-        var place = document.createElement('li');
+        let place = document.createElement('li');
         span = document.createElement('span');
-        i = document.createElement('i');
-        i.className = "fas fa-map-marker-alt";
-        span.appendChild(i);
-        span.innerText = activity.place_name;
+        span.innerHTML = '<i class="fas fa-map-marker-alt"></i>' + activity.place_name;
         place.appendChild(span);
 
-        var mapView = document.createElement('li');
-        var mapDiv = document.createElement('div');
-        mapDiv.id = 'map';
-        mapDiv.onload = function() {
-            markOnMap({lat: activity.lat, lng: activity.lng});
-        };
+        let mapView = document.createElement('li');
+        let mapDiv = document.createElement('div');
+        mapDiv.id = 'map' + activity.act_id;
+        mapDiv.style.width = '100%';
+        mapDiv.style.height = '100%';
         mapView.appendChild(mapDiv);
 
-        var details = document.createElement('li');
+        mapDetails.push({ coords: { lat: parseFloat(activity.lat), lng: parseFloat(activity.lng) }, mapId: mapDiv.id });
+
+        let details = document.createElement('li');
         details.className = 'act-details';
         details.innerText = 'View details';
         details.onclick = detailsListener;
@@ -85,25 +82,23 @@ function onSuccess(content) {
 
         activitiesDiv.appendChild(ul);
     }
+    for (let detail of mapDetails) {
+        markOnMap(detail.coords, detail.mapId);
+    }
 }
 
 function detailsListener()
 {
-    /*var lis = document.querySelectorAll('.act-details');
-    for (let li of lis) {
-        li.onclick = function() {*/
-            var cls, action;
-            var parentClass = this.parentNode.className;
-            if (parentClass === 'short-act') {
-                cls = 'long-act';
-                action = 'Hide';
-            }
-            else if (parentClass === 'long-act') {
-                cls = 'short-act';
-                action = 'View';
-            }
-            this.parentNode.className = cls;
-            this.innerHTML = action + ' details';
-        /*};
-    }*/
+    var cls, action;
+    var parentClass = this.parentNode.className;
+    if (parentClass === 'short-act') {
+        cls = 'long-act';
+        action = 'Hide';
+    }
+    else if (parentClass === 'long-act') {
+        cls = 'short-act';
+        action = 'View';
+    }
+    this.parentNode.className = cls;
+    this.innerHTML = action + ' details';
 }

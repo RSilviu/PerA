@@ -28,5 +28,3 @@ function isEmptyJsonObj(jsonObj) {
     }
     return true;
 }
-
-export { requestAsync, handleResponse, isEmptyJsonObj };

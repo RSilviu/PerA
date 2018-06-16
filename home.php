@@ -8,18 +8,17 @@ include "authCheck.php";
     <title>PerA</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./static/fontawesome/fontawesome-all.js"></script>
+    <script src="js/ajax.js" async></script>
+    <script src="js/addToGroup.js" async></script>
+    <script src="js/showRelation.js" async></script>
+    <script src="js/search.js" async></script>
+    <script src="js/mapsUtil.js" async></script>
+    <script src="js/showHome.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $_ENV['MAPS_API_KEY'] ?>&libraries=places&callback=showHome"
+    async defer></script>
     <link rel="stylesheet" type="text/css" href="./static/css/shared.css">
     <link rel="stylesheet" type="text/css" href="./static/css/home.css">
-    <script defer src="./static/fontawesome/fontawesome-all.js"></script>
-    <script defer type="module" src="js/search.js"></script>
-    <script defer type="module" src="js/showHome.js"></script>
-    <style>
-        #map {
-            margin-top: 150px;
-            height: 200px;  /* The height is 400 pixels */
-            width: 200px;  /* The width is the width of the web page */
-        }
-    </style>
 </head>
 <body>
     <nav id="topnav">
@@ -34,6 +33,7 @@ include "authCheck.php";
         <button id="notifs" class="general-button" type="button" data-count="3">
             <i class="far fa-bell fa-lg"></i>
         </button>
+        <span style="color: #fff">Hi, <?php echo $_SESSION['username']; ?>!</span>
         <span><i class="fas fa-cog"></i><a href="account.html">Settings</a></span>
         <span><i class="fas fa-sign-out-alt"></i><a href="login.php">Logout</a></span>
     </nav>
@@ -49,7 +49,7 @@ include "authCheck.php";
         </div>
         <div id="activities">
             <!-- <a href="#"> -->
-            <ul class="short-act">
+            <!--<ul class="short-act">
                 <li>TW</li>
                 <li>Sa se dezvolte o aplicatie Web ce permite utilizatorilor autentificati sa realizeze managementul activitatilor personale. Fiecare utilizator va preciza tipuri de activitati si datele aferente acestora: nume, descriere, localizare, perioada de desfasurare, periodicitatea etc.</li>
                 <li><span><i class="far fa-clock"></i>joi, 6-7 am</span></li>
@@ -57,14 +57,14 @@ include "authCheck.php";
                 <li><span><i class="fas fa-map-marker-alt"></i>Copou</span></li>
                 <li><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.1761075498052!2d27.573612404372014!3d47.17398846310152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x193e4b6864504e2c!2sFacultatea+de+Informatic%C4%83!5e0!3m2!1sro!2sro!4v1521061875366" allowfullscreen></iframe></li>
                 <li class="act-details">View details</li>
-            </ul>
+            </ul>-->
         </div>
     </div>
     <footer>
         <i class="far fa-copyright"></i> FII 2018 - All Rights Reserved
     </footer>
-    <script>
-        /*document.getElementById('searchForm').addEventListener('submit', function (f) {
+    <!--<script>
+        document.getElementById('searchForm').addEventListener('submit', function (f) {
            f.preventDefault();
 
             // ui part
@@ -79,11 +79,10 @@ include "authCheck.php";
            const url = 'http://localhost:8080/PerA/search.php?' + searchInput.name + '=' + searchInput.value;
            const timeout = 2000;
            requestAsync(url,  'get', timeout, handleSearch);
-        });*/
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $_ENV['MAPS_API_KEY'] ?>&libraries=places&callback=showHome"
-            async defer></script>
-    </body>
+        });
+    </script>-->
+<!--    <script src="https://maps.googleapis.com/maps/api/js?key=--><?php //echo $_ENV['MAPS_API_KEY'] ?><!--"></script>-->
+</body>
 </html>
 
 

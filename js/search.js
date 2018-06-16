@@ -1,5 +1,3 @@
-import { requestAsync, handleResponse, isEmptyJsonObj } from './ajax.js';
-import { showRelation } from './showRelation.js'
 
 var search = document.getElementById('search');
 search.onkeyup = function(e) {

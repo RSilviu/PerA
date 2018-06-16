@@ -1,13 +1,11 @@
 
-function initMap(coords, zoom) {
+function initMap(coords, zoom, mapId) {
     var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: zoom, center: coords});
+        document.getElementById(mapId), {zoom: zoom, center: coords});
     var marker = new google.maps.Marker({position: coords, map: map});
 }
 
-function markOnMap(coords) {
+function markOnMap(coords, mapId) {
     var zoom = 15;  // street level
-    initMap(coords, zoom);
+    initMap(coords, zoom, mapId);
 }
-
-export { markOnMap };

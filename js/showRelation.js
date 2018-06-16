@@ -1,43 +1,56 @@
-import { requestAsync, handleResponse } from './ajax.js';
-import { addToGroup } from "./addToGroup.js";
 
 function handleShowRelation() {
-    handleResponse(this, onSuccess, function () {
+    handleResponse(this, onShowRelationSuccess, function () {
         alert('showRelation onError!');
     });
 }
 
 function showRelation(url, timeout) {
-    console.log('in showRelation')
+    console.log('in showRelation');
     requestAsync(url, 'get', timeout, handleShowRelation);
 }
 
-function onSuccess(content) {
-    console.log('relation status: ', content)
+function onShowRelationSuccess(content) {
+    console.log('relation status: ', content);
     var container = document.getElementById('container');
     container.innerHTML = '';
-    var h2 = document.createElement('h2');
+    var p = document.createElement('p');
     var msg;
     var person = JSON.parse(content);
     var personName = person.name;
-    if (person.inGroup) {
+    let isInGroup = person.inGroup;
+    if (isInGroup) {
         msg = personName + ' is in your group';
     } else {
         msg = personName + ' is not part of your group';
     }
-    h2.innerText = msg;
-    container.appendChild(h2);
-    if (! person.inGroup) {
-        var addBtn = document.createElement('input');
-        addBtn.type = 'button';
-        addBtn.value = 'Add to group';
-        addBtn.addEventListener('click', function () {
-            const url = 'http://localhost:8080/PerA/follow.php?id=' + person.id + '&name=' + personName;
-            const timeout = 2000;
-            addToGroup(url, timeout);
-        });
-        container.appendChild(addBtn);
+    if (isInGroup < 0) {
+        msg = 'This is you.';
     }
+    p.innerText = msg;
+    container.appendChild(p);
+    if (isInGroup < 0) {
+        return;
+    }
+    let personId = person.id;
+    if (isInGroup) {
+        let rssLink = document.createElement('a');
+        rssLink.type = "application/rss+xml";
+        rssLink.href = 'rss.php?id=' + personId;
+        rssLink.target = '_blank';
+        rssLink.textContent = 'View RSS';
+        container.appendChild(rssLink);
+        return;
+    }
+    // not in group
+    var addBtn = document.createElement('input');
+    addBtn.type = 'button';
+    addBtn.value = 'Add to group';
+    addBtn.addEventListener('click', function () {
+        const url = 'http://localhost:8080/PerA/follow.php?id=' + personId + '&name=' + personName;
+        const timeout = 2000;
+        addToGroup(url, timeout);
+    });
+    container.appendChild(addBtn);
 }
 
-export { showRelation };

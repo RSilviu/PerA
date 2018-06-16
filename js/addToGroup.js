@@ -1,7 +1,6 @@
-import { requestAsync, handleResponse } from './ajax.js';
 
 function handleAdd() {
-    handleResponse(this, onSuccess, function () {
+    handleResponse(this, onAddToGroupSuccess, function () {
         alert('addToGroup onError!');
     });
 }
@@ -10,8 +9,6 @@ function addToGroup(url, timeout) {
     requestAsync(url, 'get', timeout, handleAdd);
 }
 
-function onSuccess(msg) {
+function onAddToGroupSuccess(msg) {
     alert(msg);
 }
-
-export { addToGroup };

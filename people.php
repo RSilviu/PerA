@@ -20,6 +20,9 @@ try {
     if ($stmt->fetch()) {    // user already in group, we follow this user's activities
         $inGroup = true;
     }
+    if ($person_id == $client_id) {
+        $inGroup = -1;
+    }
         //        $response = "<h2>You follow this user's activity</h2>";
 //    } else {    // user not from the group
         /*$response .= "<h2>$person_name is not part of your group</h2>";

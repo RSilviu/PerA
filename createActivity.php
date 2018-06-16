@@ -46,6 +46,7 @@ try {
     $insert = 'INSERT INTO places VALUES (?, ?, ?, ?)';
     $pdo->prepare($insert)->execute($values);
     echo "place has been added".'<br><br>';
+    header('Location: '.HOME_ROUTE);
 } catch (PDOException $e) {
     die($e->getMessage());
 }
