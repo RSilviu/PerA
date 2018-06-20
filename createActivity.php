@@ -35,9 +35,9 @@ try {
     $pdo->prepare($insert)->execute($values);
     echo "activity has been added".'<br><br>';
 
-    $values = [ $placeId, $placeName, $lat, $lng ];
-    $insert = 'INSERT INTO places VALUES (?, ?, ?, ?)';
-    $pdo->prepare($insert)->execute($values);
+// $values = [ $placeId, $placeName/*, $lat, $lng */];
+    // $insert = 'INSERT INTO places VALUES (?, ?/*, ?, ?*/)';
+    // $pdo->prepare($insert)->execute($values);
     echo "place has been added".'<br><br>';
 } catch (PDOException $e) {
     die($e->getMessage());
@@ -50,12 +50,9 @@ echo 'name: '.$name.'<br>';
 echo 'desc: '.$desc.'<br>';
 
 echo 'place: '.$placeName.'<br>';
-echo 'place_id: '.$placeId.'<br>';
-echo 'lat: '.$lat.'<br>';
-echo 'lng: '.$lng.'<br>';
 
-echo 'name: '.$hour.'<br>';
-echo 'desc: '.$day.'<br>';
+echo 'hour: '.$hour.'<br>';
+echo 'day: '.$day.'<br>';
 
 // echo 'startDate: '.(new DateTime("@$startDate"))->format('Y-m-d H:i').'<br>';
 // echo 'endDate: '.(new DateTime("@$endDate"))->format('Y-m-d H:i').'<br>';
