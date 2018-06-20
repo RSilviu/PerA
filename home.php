@@ -59,6 +59,7 @@ include "authCheck.php";
                 <li class="act-details">View details</li>
             </ul>-->
         </div>
+        <button id="addActBtn" onclick="showAddActivity()">+</button>
     </div>
     <footer>
         <i class="far fa-copyright"></i> FII 2018 - All Rights Reserved

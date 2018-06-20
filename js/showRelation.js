@@ -20,14 +20,14 @@ function onShowRelationSuccess(content) {
     var personName = person.name;
     let isInGroup = person.inGroup;
     if (isInGroup) {
-        msg = personName + ' is in your group';
+        msg = '<strong>' + personName + '</strong> is in your group';
     } else {
-        msg = personName + ' is not part of your group';
+        msg = '<strong>' + personName + '</strong> is not part of your group';
     }
     if (isInGroup < 0) {
         msg = 'This is you.';
     }
-    p.innerText = msg;
+    p.innerHTML = msg;
     container.appendChild(p);
     if (isInGroup < 0) {
         return;

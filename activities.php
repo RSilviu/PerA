@@ -12,8 +12,10 @@ session_start();
     <link rel="stylesheet" type="text/css" href="./static/css/home.css">
     <link rel="stylesheet" type="text/css" href="./static/css/activities.css">
     <script defer src="./static/fontawesome/fontawesome-all.js"></script>
-    <script defer src="./static/activities.js"></script>
-    <script defer type="module" src="js/search.js"></script>
+    <script src="js/ajax.js" async></script>
+    <script src="./static/activities.js" async></script>
+    <script src="js/search.js" async></script>
+    <script src="js/activities.js" async></script>
 </head>
 <body>
     <nav id="topnav">
@@ -57,25 +59,25 @@ session_start();
                 <div class="table-column" style="font-size: 21px">
                     08:00
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="8" data-day="Mon">
                     Cafea
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="8" data-day="Tue">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="8" data-day="Wen">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="8" data-day="Thu">
                     Cafea
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="8" data-day="Fri">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="8" data-day="Sat">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="8" data-day="Sun">
 
                 </div>
             </div>
@@ -83,25 +85,25 @@ session_start();
                 <div class="table-column" style="font-size: 21px">
                     10:00
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="10" data-day="Mon">
                     PSH
                 </div>
-                <div class="table-column">
+                <div class="table-column"  data-hour="10" data-day="Tue">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="10" data-day="Wen">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="10" data-day="Thu">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="10" data-day="Fri">
                     PBR
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="10" data-day="Sat">
                     Plimbare
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="10" data-day="Sun">
 
                 </div>
             </div>
@@ -109,25 +111,25 @@ session_start();
                 <div class="table-column" style="font-size: 21px">
                     12:00
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="12" data-day="Mon">
                     CN
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="12" data-day="Tue">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="12" data-day="Wen">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="12" data-day="Thu">
                     Java
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="12" data-day="Fri">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="12" data-day="Sat">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="12" data-day="Sun">
 
                 </div>
             </div>
@@ -135,25 +137,25 @@ session_start();
                 <div class="table-column" style="font-size: 21px">
                     14:00
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="14" data-day="Mon">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="14" data-day="Tue">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="14" data-day="Wen">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="14" data-day="Thu">
                     TW
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="14" data-day="Fri">
                     GPC
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="14" data-day="Sat">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="14" data-day="Sun">
 
                 </div>
             </div>
@@ -161,25 +163,25 @@ session_start();
                 <div class="table-column"  style="font-size: 21px">
                     16:00
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="16" data-day="Mon">
                     POO
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="16" data-day="Tue">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="16" data-day="Wen">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="16" data-day="Thu">
                     Fotbal
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="16" data-day="Fri">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="16" data-day="Sat">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="16" data-day="Sun">
 
                 </div>
             </div>
@@ -187,59 +189,59 @@ session_start();
                 <div class="table-column" style="font-size: 21px">
                     18:00
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="18" data-day="Mon">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="18" data-day="Tue">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="18" data-day="Wen">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="18" data-day="Thu">
                     Bere
                 </div>
-                <div class="table-column">
+                <div class="table-column"  data-hour="18" data-day="Fri">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="18" data-day="Sat">
 
                 </div>
-                <div class="table-column">
+                <div class="table-column" data-hour="18" data-day="Sun">
 
                 </div>
             </div>
         </div>
 
         <div id="bar-graph">
-                <div class="day">
+                <div class="day" id="Mon">
+                    <!-- <div class="vertical-block-work"></div>
                     <div class="vertical-block-work"></div>
                     <div class="vertical-block-work"></div>
+                    <div class="vertical-block-leisure"></div> -->
+                </div>
+                <div class="day" id="Tue">
+                    <!-- <div class="ny-block"></div> -->
+                </div>
+                <div class="day" id="Wen">
+                    <!-- <div class="ny-block"></div> -->
+                </div>
+                <div class="day" id="Thu">
+                    <!-- <div class="vertical-block-work"></div>
                     <div class="vertical-block-work"></div>
                     <div class="vertical-block-leisure"></div>
-                </div>
-                <div class="day">
-                    <div class="ny-block"></div>
-                </div>
-                <div class="day">
-                    <div class="ny-block"></div>
-                </div>
-                <div class="day">
-                    <div class="vertical-block-work"></div>
-                    <div class="vertical-block-work"></div>
                     <div class="vertical-block-leisure"></div>
-                    <div class="vertical-block-leisure"></div>
-                    <div class="vertical-block-leisure"></div>
+                    <div class="vertical-block-leisure"></div> -->
                 </div>
-                <div class="day">
-                    <div class="vertical-block-work"></div>
-                    <div class="vertical-block-work"></div>
+                <div class="day" id="Fri">
+                    <!-- <div class="vertical-block-work"></div>
+                    <div class="vertical-block-work"></div> -->
                 </div>
-                <div class="day">
-                    <div class="vertical-block-leisure"></div>
+                <div class="day" id="Sat">
+                    <!-- <div class="vertical-block-leisure"></div> -->
                 </div>
-                <div class="day">
-                    <div class="ny-block"></div>
+                <div class="day" id="Sun">
+                    <!-- <div class="ny-block"></div> -->
                 </div>
             <div class="day-bar">Monday</div>
             <div class="day-bar">Tuesday</div>

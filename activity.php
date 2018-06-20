@@ -22,6 +22,9 @@
         fieldset {
             width: 20%;
         }
+        input[disabled] {
+            text-align: center;
+        }
     </style>
     <link rel="stylesheet" href="static/css/timePicker.css">
 </head>
@@ -55,13 +58,17 @@
         <input type="hidden" name="lng" id="lng">
         <br><br>
 
+        <label for="dayOfTheWeek">day (i.e Mon)</label>
+        <input type="text" name="day" id="dayOfTheWeek" value="<?php echo $_REQUEST['day'] ?>" readonly><br><br>
+        <label for="hourOfDay">hour (8:00 - 18:00)</label>
+        <input type="text" name="hour" id="hourOfDay" value="<?php echo $_REQUEST['hour'] ?>" readonly>
+        <br><br>
 
-      <input type="hidden" name="tz_minutes" id="tz">
+      <!--<input type="hidden" name="tz_minutes" id="tz">
       <div class="nativeDateTimePicker">
         <label for="startDate">Starts</label>
         <input type="datetime-local" id="startDate" name="startDate">
-<!--        <span class="validity"></span>-->
-      </div>
+      </div>-->
             <!--  <p class="fallbackLabel">Starts</p>
               <div class="fallbackDateTimePicker">
                     <div>
@@ -108,11 +115,10 @@
                   </div>-->
 
 
-    <div class="nativeDateTimePicker">
+    <!--<div class="nativeDateTimePicker">
             <label for="endDate">Ends</label>
             <input type="datetime-local" id="endDate" name="endDate">
-<!--            <span class="validity"></span>-->
-    </div>
+    </div>-->
         <!--  <p class="fallbackLabel">Ends</p>
           <div class="fallbackDateTimePicker">
                 <div>
@@ -162,7 +168,6 @@
         <!--durata: 1 zi, 1+ zile
         repeat: 1 zi - zi urmatoare, zi anume ; 1+ zile - zi anume, saptamanal, lunar, anual, ... , dinamic-->
 
-        <br><br>
         <label for="periodicity">periodicity</label>
         <select name="periodicity" id="periodicity">
             <option value="0" selected>None</option>
@@ -174,8 +179,8 @@
         <br><br>
     </form>
     <script>
-        var tz_offset_minutes = new Date().getTimezoneOffset();
-        document.getElementById('tz').value = (tz_offset_minutes === 0 ? 0 : -tz_offset_minutes);
+        /*var tz_offset_minutes = new Date().getTimezoneOffset();
+        document.getElementById('tz').value = (tz_offset_minutes === 0 ? 0 : -tz_offset_minutes);*/
 
         var autocomplete;
 

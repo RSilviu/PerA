@@ -1,9 +1,9 @@
 <?php
 session_start();
 include "routes.php";
-if (! isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] !== ACTIVITY_ROUTE) {
+/*if (! isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] !== ACTIVITY_ROUTE) {
     die();
-}
+}*/
 $userId = $_SESSION['uid'];
 $type = $_POST['type'];
 $name = $_POST['name'];
@@ -16,42 +16,43 @@ $lng = $_POST['lng'];
 
 /*$startDate = str_replace('T', ' ', $_POST['startDate']);
 $endDate = str_replace('T', ' ', $_POST['endDate']);*/
-$tzMinutes = $_POST['tz_minutes'];
-$startDate = $_POST['startDate'];
-$endDate = $_POST['endDate'];
+//$tzMinutes = $_POST['tz_minutes'];
+//$startDate = $_POST['startDate'];
+//$endDate = $_POST['endDate'];
+$day = $_POST['day'];
+$hour = $_POST['hour'];
+
 $periodicity = $_POST['periodicity'];
 
-echo 'before'.'<br><br>';
+/*echo 'before'.'<br><br>';
 echo 'startDate: '.$startDate.'<br>';
-echo 'endDate: '.$endDate.'<br><br>';
+echo 'endDate: '.$endDate.'<br><br>';*/
 
 
 include 'db/conn.php';
 
-$insert = 'INSERT INTO activities VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)';
-
-echo 'tz used by server: '.date_default_timezone_get().'<br><br>';
+//echo 'tz used by server: '.date_default_timezone_get().'<br><br>';
 //$tzName = timezone_name_from_abbr('', $tzMinutes*60);
 //date_default_timezone_set('Europe/Bucharest');
 
-$startDate = (new DateTime($startDate))->getTimestamp();
-$endDate = (new DateTime($endDate))->getTimestamp();
+//$startDate = (new DateTime($startDate))->getTimestamp();
+//$endDate = (new DateTime($endDate))->getTimestamp();
 
-$values = [ $userId, $type, $name, $desc, $placeId, $startDate, $endDate, $periodicity ];
 try {
-    $pdo->prepare($insert)->execute($values);
-    echo "activity has been added".'<br><br>';
+    $values = [ $placeId, $placeName, $lat, $lng, $placeId, $placeName, $lat, $lng ];
+    $stmt = 'INSERT INTO places VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE id = ?, name = ?, lat = ?, lng = ?';
+    $pdo->prepare($stmt)->execute($values);
 
-    $values = [ $placeId, $placeName, $lat, $lng ];
-    $insert = 'INSERT INTO places VALUES (?, ?, ?, ?)';
+    $insert = 'INSERT INTO activities VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)';
+    $values = [ $userId, $type, $name, $desc, $placeId, $day, $hour, $periodicity ];
     $pdo->prepare($insert)->execute($values);
-    echo "place has been added".'<br><br>';
-    header('Location: '.HOME_ROUTE);
+
+    header('Location: '.ACTIVITIES_ROUTE);
 } catch (PDOException $e) {
-    die($e->getMessage());
+    die($e->getMessage() . ' at line '.$e->getLine());
 }
 
-echo 'after'.'<br><br>';
+/*echo 'after'.'<br><br>';
 
 echo 'type: '.$type.'<br>';
 echo 'name: '.$name.'<br>';
@@ -64,4 +65,4 @@ echo 'lng: '.$lng.'<br>';
 
 echo 'startDate: '.(new DateTime("@$startDate"))->format('Y-m-d H:i').'<br>';
 echo 'endDate: '.(new DateTime("@$endDate"))->format('Y-m-d H:i').'<br>';
-echo 'periodicity: '.$periodicity.'<br>';
+echo 'periodicity: '.$periodicity.'<br>';*/
