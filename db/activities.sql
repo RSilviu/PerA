@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 10, 2018 at 08:21 PM
+-- Generation Time: Jun 20, 2018 at 09:53 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -35,10 +35,18 @@ CREATE TABLE `activities` (
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `place_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `startDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `endDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `day` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `hour` int(11) NOT NULL,
   `periodicity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `activities`
+--
+
+INSERT INTO `activities` (`id`, `userId`, `type`, `name`, `description`, `place_id`, `day`, `hour`, `periodicity`) VALUES
+(43, 29, 0, 'safasdf', 'safsadf', 'ChIJNSE2HKT8ykARCgaCiEa3CcI', 'Tue', 18, 0),
+(44, 29, 0, 'normal', 'normal', 'ChIJNSE2HKT8ykARCgaCiEa3CcI', 'Tue', 14, 0);
 
 --
 -- Indexes for dumped tables
@@ -49,7 +57,8 @@ CREATE TABLE `activities` (
 --
 ALTER TABLE `activities`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_users_act` (`userId`);
+  ADD KEY `fk_users_act` (`userId`),
+  ADD KEY `fk_places_act` (`place_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -59,7 +68,7 @@ ALTER TABLE `activities`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Constraints for dumped tables
@@ -69,6 +78,7 @@ ALTER TABLE `activities`
 -- Constraints for table `activities`
 --
 ALTER TABLE `activities`
+  ADD CONSTRAINT `fk_places_act` FOREIGN KEY (`place_id`) REFERENCES `places` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_users_act` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 

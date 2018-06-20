@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 10, 2018 at 09:10 PM
+-- Generation Time: Jun 20, 2018 at 09:54 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -36,6 +36,14 @@ CREATE TABLE `places` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `places`
+--
+
+INSERT INTO `places` (`id`, `name`, `lat`, `lng`) VALUES
+('ChIJNSE2HKT8ykARCgaCiEa3CcI', 'Copou, Iași, România', '47.180215', '27.568450'),
+('ChIJs0rPr4n7ykARRgYHkrkjRTk', 'Complex Hotelier Ciric, Ciric, Iași, România', '47.184996', '27.600894');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -44,16 +52,6 @@ CREATE TABLE `places` (
 --
 ALTER TABLE `places`
   ADD PRIMARY KEY (`id`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `places`
---
-ALTER TABLE `places`
-  ADD CONSTRAINT `fk_act_places` FOREIGN KEY (`id`) REFERENCES `activities` (`place_id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
