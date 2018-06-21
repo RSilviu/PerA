@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>PerA - Personal Web Assistant</title>
+    <link rel="stylesheet" href="public/css/scholarly.css">
+    <link rel="stylesheet" href="public/js/prismjs/themes/prism-coy.css">
+    <script src="public/js/prismjs/prism.js" defer></script>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        p {
+            text-align: justify;
+        }
+    </style>
+</head>
+<body prefix="schema: http://schema.org/ xsd: http://www.w3.org/2001/XMLSchema# sa: https://ns.science.ai/">
+<header>
+    <p class="title">Personal Web Assistant</p>
+    <p class="subtitle">PerA</p>
+</header>
+<article id="what" typeof="schema:ScholarlyArticle" resource="#">
+    <h1>What is PerA?</h1>
+    <section>
+        <ol>
+            <li property="schema:contributor" typeof="sa:ContributorRole">
+                <a property="schema:contributor" href="https://github.com/RSilviu" typeof="schema:Person">
+                    <strong>
+                        <span property="schema:givenName">Silviu</span>
+                        <span property="schema:familyName">Rusu</span>
+                    </strong>
+                </a>
+            </li>
+            <li property="schema:contributor" typeof="sa:ContributorRole">
+                <a property="schema:contributor" href="https://github.com/bgmunteanu" typeof="schema:Person">
+                    <span property="schema:givenName">Bogdan</span>
+                    <span property="schema:familyName">Munteanu</span>
+                </a>
+            </li>
+        </ol>
+        <ol>
+            <li id="scienceai">
+                <a href="https://www.info.uaic.ro/bin/Main/" typeof="schema:Corporation">
+                    <span property="schema:name">Faculty of Computer Science</span>
+                </a>
+            </li>
+        </ol>
+        <h2 style="display: inline-block;">Tags:</h2>
+        <ul style="display: inline-block;">
+            <li property="schema:keywords">project</li>
+            <li property="schema:keywords">infoiasi</li>
+            <li property="schema:keywords">web</li>
+        </ul>
+    </section>
+
+    <section typeof="sa:Abstract" id="abstract">
+        <h2>Abstract</h2>
+        <p>
+            <strong>PerA</strong> (Personal Web Assistant) is a web application intended to help people manage their activities.
+        </p>
+        <p>
+            Users will be able to schedule activities, connect with other users and follow them.
+        </p>
+    </section>
+    <section typeof="sa:Materials" id="technologies">
+        <h2>Technologies</h2>
+        <ul>
+            <li>
+                <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started">AJAX</a> stands for Asynchronous JavaScript And XML. In a nutshell, it is the use of the XMLHttpRequest object to communicate with servers. It can send and receive information in various formats, including JSON, XML, HTML, and text files. AJAX’s most appealing characteristic is its "asynchronous" nature, which means it can communicate with the server, exchange data, and update the page without having to refresh the page.</p>
+            </li>
+            <li>
+                <p><a href="https://www.apachefriends.org/about.html">XAMPP stack</a> Many people know from their own experience that it's not easy to install an Apache web server and it gets harder if you want to add MariaDB, PHP and Perl. The goal of XAMPP is to build an easy to install distribution for developers to get into the world of Apache.</p>
+            </li>
+            <li>
+                <p><a href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Maps Javascript API</a> lets you customize maps with your own content and imagery for display on web pages and mobile devices. </p>
+            </li>
+            <li>
+                <p><a href="https://git-scm.com/">Git</a> is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+                We also used Github for hosting the source code. We divided the project into small tasks and created one branch per feature, starting with the front-end part. When features were completed,
+                the corresponding branches would be merged into the master branch. For the server side, we went for a different approach. We pushed to branches called 'dev' and 'latest', the latter having most recent changes.</p>
+            </li>
+        </ul>
+    </section>
+    <section typeof="sa:Methods" id="architecture">
+        <h2>Architecture</h2>
+        <figure typeof="sa:Image">
+            <img src="public/resources/tier-arch.png" width="880" height="655">
+            <figcaption>
+                <div style="text-align: center;">The general architecture of PerA</div>
+            </figcaption>
+        </figure>
+
+    <section id="design-details">
+            <h3>Design Details</h3>
+
+            <p>
+                The <strong>User Interface</strong> of the application is built using HTML5 and CSS3. Some UI parts are dinamically generated from Javascript.
+            </p>
+
+            <figure typeof="sa:Image">
+                <img src="public/resources/mocks/home1.png">
+                <figcaption>
+                    <strong>Home Page</strong> is where the user views calendar matches of his group of favorites and a list of his activities.
+                </figcaption>
+            </figure>
+
+            <figure typeof="sa:Image">
+                <img src="public/resources/mocks/home-responsive.png">
+                <figcaption>
+                    <strong>Home Responsive</strong> responsive view of home page.
+                </figcaption>
+            </figure>
+
+            <figure typeof="sa:Image">
+                <img src="public/resources/mocks/act-item.png">
+                <figcaption>
+                    <strong>Activity Item</strong> contains, besides activity info, controls for update / delete the activity.
+                </figcaption>
+            </figure>
+
+            <figure typeof="sa:Image">
+                <img src="public/resources/mocks/activity-details.png">
+                <figcaption>
+                    <strong>Activity details</strong> shows real map from Google Maps API, and relevant details, such as date, description
+                </figcaption>
+            </figure>
+
+
+            <figure typeof="sa:Image">
+                <img src="public/resources/mocks/group.png">
+                <figcaption>
+                    <strong>Group view</strong> displays people you follow
+                </figcaption>
+            </figure>
+
+
+            <figure typeof="sa:Image">
+                <img src="public/resources/mocks/calendar.png">
+                <figcaption>
+                    <strong>Calendar view</strong> gives a better perspective over your activities of current week, new activities can be added by clicking on cells
+                </figcaption>
+            </figure>
+
+
+            <figure typeof="sa:Image">
+                <img src="public/resources/mocks/stats.png">
+                <figcaption>
+                    <strong>Stats view</strong> displays week layout considering activity types
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion & Future considerations</h2>
+            <p>
+                PerA has been created to ease up the management of activities by providing an intuitive platform that uses simple technologies to enhance the
+                way of visualizing the relationships between various entities in the context of real life. The application can be extended and improved in different ways by conceiving new mechanisms and architectural ideas.
+            </p>
+            <aside typeof="schema:WPSideBar">
+                <div style="text-align: center;">
+                    All of these can be integrated in the current version of the design resulting in a modern, evolved PerA.
+                </div>
+            </aside>
+        </section>
+
+        <section typeof="sa:ReferenceList" id="references">
+            <h2>References</h2>
+            <dl>
+                <dt>Google Maps API, 2018</dt>
+                <dd id="ref-maps" typeof="schema:CreativeWork"
+                    resource="https://developers.google.com/maps/documentation/javascript/tutorial">
+                    <cite property="schema:name">
+                        <a href="https://developers.google.com/maps/documentation/javascript/tutorial">Maps API</a>
+                    </cite>,
+                    by
+                    <span property="schema:author" typeof="schema:Organization">
+                        <span property="schema:name">Google, Inc.</span>
+                    </span>
+                </dd>
+
+                <dt>XAMPP, 2018</dt>
+                <dd id="ref-xampp" typeof="schema:CreativeWork"
+                    resource="https://www.apachefriends.org/about.html">
+                    <cite property="schema:name">
+                        <a href="https://www.apachefriends.org/about.html">Xampp</a>
+                    </cite>,
+                    by
+                    <span property="schema:author" typeof="schema:Organization">
+                        <span property="schema:name">Apache, Org.</span>
+                    </span>
+                </dd>
+            </dl>
+        </section>
+
+    </section>
+</article>
+<footer>
+    <p>
+        Personal Web Assistant
+        •
+        <a href="https://www.info.uaic.ro/bin/Main/">
+            <img src="https://www.info.uaic.ro/skins/fii/logo_fii3.png" height="20px">
+        </a>
+        •
+        <a href="">PerA @ Github</a>
+    </p>
+</footer>
+</body>
+</html>
