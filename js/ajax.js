@@ -1,4 +1,4 @@
-function requestAsync(url, method, timeout, handler) {
+function requestAsync(url, method, timeout, handler, body = null) {
     try { // trying to instantiate a XMLHttpRequest object
         var xhr = new XMLHttpRequest();
     } catch (e) {
@@ -8,7 +8,7 @@ function requestAsync(url, method, timeout, handler) {
         xhr.onload = handler;
         xhr.open(method, url, true); // opening connection
         xhr.timeout = timeout;         // setting the response time
-        xhr.send(null);             // sending the HTTP request (no data is provided)
+        xhr.send(body);             // sending the HTTP request
     }
 }
 
@@ -16,7 +16,7 @@ function handleResponse(xhr, onSuccess, onError) {
     if (xhr.readyState === 4) {   // data arrived
         if (xhr.status === 200) { // response Ok from server
             onSuccess(xhr.responseText);
-        } else {
+        } else if (! (xhr.status === 201 || xhr.status === 204)) {
             onError();
         }
     }

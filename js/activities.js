@@ -1,17 +1,22 @@
 
+const TYPE_RELAX = 0;
+const TYPE_WORK = 1;
+
 var activitiesTable = document.getElementById("timetable");
 
 for (var i = 1; i < activitiesTable.childNodes.length; i++) {
 	for (var j = 1; j < activitiesTable.childNodes[i].childNodes.length; j++) {
-		activitiesTable.childNodes[i].childNodes[j].addEventListener ('click', function(e) {
-			onCellClicked(e.target)
+		let cell = activitiesTable.childNodes[i].childNodes[j];
+		if (cell.nodeType !== Node.TEXT_NODE && cell.hasAttribute('data-hour')) {
+            cell.addEventListener ('click', function(e) {
+                    onCellClicked(e.target)
+                }
+            );
 		}
-	)}
+	}
 }
 
 retrieveActivities();
-// populateSchedule()
-// populateStats()
 
 
 function onCellClicked(el) {
@@ -57,21 +62,21 @@ function getElementFromTimeTable(activity) {
 
 function populateStats(activities) {
 	var graph = document.getElementById("bar-graph");
-
 	graph.childNodes.forEach(function(element) {
-		var currentAct = [];
-		activities.forEach(function(activity) {
-			if(element.nodeType !== Node.TEXT_NODE && element.hasAttribute('data-day') && activity.day == element.getAttribute('data-day')) {
-				if(activity.type == 0) {
-					currentAct = [activity] + currentAct
+        var currentAct = [];
+        activities.forEach(function(activity) {
+			if(element.nodeType !== Node.TEXT_NODE && element.id != '' &&
+				activity.day == element.id) {
+				if(activity.type == TYPE_RELAX) {
+					currentAct.unshift(activity);
 				} else {
-					currentAct = currentAct = [activity]
+					currentAct.push(activity);
 				}
 			}});
 
 		currentAct.forEach(function(act) {
 			var newCell = document.createElement('div');
-			newCell.className = element.type == 0 ? "vertical-block-work" : "vertical-block-leisure";
+			newCell.className = act.type == TYPE_WORK ? "vertical-block-work" : "vertical-block-leisure";
 			element.appendChild(newCell);
 		});
 	});

@@ -23,4 +23,4 @@ if ($user && password_verify($_POST['Password'], $user['secret']))
     header('Location: '.HOME_ROUTE);
     exit;
 }
-echo "Invalid auth!";
+echo '<h1>Invalid auth!</h1>';

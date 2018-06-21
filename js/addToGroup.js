@@ -5,10 +5,9 @@ function handleAdd() {
     });
 }
 
-function addToGroup(url, timeout) {
-    requestAsync(url, 'get', timeout, handleAdd);
+function addToGroup(url, timeout, body) {
+    requestAsync(url, 'POST', timeout, handleAdd, body);
 }
 
 function onAddToGroupSuccess(msg) {
-    alert(msg);
 }

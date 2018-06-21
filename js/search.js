@@ -18,6 +18,28 @@ window.onclick = function (e) {
     }
 };
 
+document.getElementById('searchForm').addEventListener('submit', function (f) {
+    f.preventDefault();
+
+    // ui part
+    // var container = document.getElementById('container');
+    // container.innerHTML = '';
+
+/*
+    document.getElementById('activities').classList.add('hidden');
+    var resultsDiv = document.getElementById('searchRes');
+    var searchInput = document.getElementById('search');
+    var h3 = document.querySelector('#searchRes h3');
+    h3.innerText = '"' + searchInput.value + '"';
+    resultsDiv.classList.remove('hidden');
+
+    // ajax part
+    const url = 'http://localhost:8080/PerA/search.php?' + searchInput.name + '=' + searchInput.value;
+    const timeout = 2000;
+    requestAsync(url,  'get', timeout, handleSearch);
+*/
+});
+
 function handleSearch() {
     handleResponse(this, showSuggestions, function () {
         alert('search onError!');

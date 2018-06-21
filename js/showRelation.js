@@ -6,12 +6,10 @@ function handleShowRelation() {
 }
 
 function showRelation(url, timeout) {
-    console.log('in showRelation');
     requestAsync(url, 'get', timeout, handleShowRelation);
 }
 
 function onShowRelationSuccess(content) {
-    console.log('relation status: ', content);
     var container = document.getElementById('container');
     container.innerHTML = '';
     var p = document.createElement('p');
@@ -47,9 +45,9 @@ function onShowRelationSuccess(content) {
     addBtn.type = 'button';
     addBtn.value = 'Add to group';
     addBtn.addEventListener('click', function () {
-        const url = 'http://localhost:8080/PerA/follow.php?id=' + personId + '&name=' + personName;
-        const timeout = 2000;
-        addToGroup(url, timeout);
+        const url = 'http://localhost:8080/PerA/follow.php?';
+        const body = 'id=' + personId + '&name=' + personName;
+        window.location.href = url + body;
     });
     container.appendChild(addBtn);
 }

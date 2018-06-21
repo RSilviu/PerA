@@ -28,6 +28,9 @@ function onShowHomeSuccess(content) {
     let activities = JSON.parse(content);
     // activitiesDiv.innerHTML = content;
     let mapDetails = [];
+    let actHeader = document.createElement('h2');
+    actHeader.innerText = 'This week schedule';
+    activitiesDiv.appendChild(actHeader);
     if (activities.length === 0) {
         let p = document.createElement('p');
         p.innerText = 'No activities scheduled for this week';
@@ -37,7 +40,7 @@ function onShowHomeSuccess(content) {
         addBtn.type = 'button';
         addBtn.value = 'Add activity';
         addBtn.onclick = function() {
-            window.location.href = 'http://localhost:8080/PerA/activity.php';
+            window.location.href = 'http://localhost:8080/PerA/activities.php';
         };
         activitiesDiv.appendChild(addBtn);
         return;
@@ -61,11 +64,11 @@ function onShowHomeSuccess(content) {
         let repeatType = activity.periodicity;
         let nextDay, nextHour, nextTime;
         if (repeatType === PERIODICITY_NONE) {
-            nextTime = 'N/A';
+            nextTime = 'No';
         } else if (repeatType === PERIODICITY_DAILY) {
-            nextTime = 'maine, ora';
-        } else {
-            nextTime = 'sapt viitoare, ac ora';
+            nextTime = getNextDay(activity.day)+', '+activity.hour;
+        } else { // weekly
+            nextTime = activity.day+', '+activity.hour;
         }
         let repeats = document.createElement('li');
         span = document.createElement('span');
@@ -89,7 +92,15 @@ function onShowHomeSuccess(content) {
         let update = document.createElement('li');
         update.innerText = 'Update';
         update.classList.add('updateActBtn');
-        update.onclick = updateActivityListener;
+        update.onclick = (function () {
+            let act = activity;
+            return function () {
+                let params = 'id='+act.act_id+'&type='+act.type+'&name='+act.act_name+'&description='+act.description+
+                    '&place_id='+act.place_id+'&place='+act.place_name+'&lat='+act.lat+'&lng='+act.lng+
+                    '&day='+act.day+'&hour='+act.hour+'&periodicity='+act.periodicity;
+                window.location.href = 'http://localhost:8080/PerA/activity.php?'+params;
+            };
+        })();
 
         let remove = document.createElement('li');
         remove.innerText = 'Remove';
@@ -118,8 +129,32 @@ function onShowHomeSuccess(content) {
     }
 }
 
-function updateActivityListener() {
-    alert('Not implemented');
+function getNextDay(day) {
+    let nextDay;
+    switch (day) {
+        case 'Mon':
+            nextDay = 'Tue';
+            break;
+        case 'Tue':
+            nextDay = 'Wen';
+            break;
+        case 'Wen':
+            nextDay = 'Thu';
+            break;
+        case 'Thu':
+            nextDay = 'Fri';
+            break;
+        case 'Fri':
+            nextDay = 'Sat';
+            break;
+        case 'Sat':
+            nextDay = 'Sun';
+            break;
+        case 'Sun':
+            nextDay = 'Mon';
+            break;
+    }
+    return nextDay;
 }
 
 function onRemoveActivitySuccess() {
