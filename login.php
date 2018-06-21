@@ -33,12 +33,12 @@ if (isset($_SESSION['uid'])) {
 			<input type="password" name="Password" placeholder="Password" class="login-input">
 
 			<div class="remember-me">
-				<div>
+			<!--	<div>
 					<input id="Input" type="checkbox" name="Remember-me">
 					<label class="" for="Input">
 						Remember me
 					</label>
-				</div>
+				</div>-->
 
 				<div>
 					<a href="signup.php" style="text-align: right; position: relative; right: 0;">

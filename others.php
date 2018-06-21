@@ -13,7 +13,10 @@ include 'authCheck.php';
     <link rel="stylesheet" type="text/css" href="./static/css/others.css">
 
     <script defer src="./static/fontawesome/fontawesome-all.js"></script>
-    <script defer type="module" src="js/search.js"></script>
+    <script src="js/ajax.js" async></script>
+    <script src="js/addToGroup.js" async></script>
+    <script src="js/showRelation.js" async></script>
+    <script src="js/search.js" async></script>
 </head>
 <body>
     <nav id="topnav">
@@ -25,10 +28,11 @@ include 'authCheck.php';
             <ul id="suggestions" class="hidden">
             </ul>
         </div>
-        <button id="notifs" class="general-button" type="button" data-count="3">
+<!--        <button id="notifs" class="general-button" type="button" data-count="3">
             <i class="far fa-bell fa-lg"></i>
-        </button>
-        <span><i class="fas fa-cog"></i><a href="account.html">Settings</a></span>
+        </button>-->
+        <span style="color: #fff">Hi, <?php echo $_SESSION['username']; ?>!</span>
+<!--        <span><i class="fas fa-cog"></i><a href="account.html">Settings</a></span>-->
         <span><i class="fas fa-sign-out-alt"></i><a href="login.php">Logout</a></span>
     </nav>
     <div class="sidenav">
@@ -36,13 +40,9 @@ include 'authCheck.php';
       <a href="#">Others</a>
     </div>
     <div id="container" class="content">
-        <div id="activities">
-            <ul class="short-act">
-                <li>Name</li>
-                <li><span><i class="far fa-clock"></i>Activity</span></li>
-                <li><span><i class="fas fa-map-marker-alt"></i>joi, 6-7 am</span></li>
-                <li>More activities from Name</li>
-            </ul>
+        <div>
+            <h3>People in my group</h3>
+            <?php include 'showGroup.php'; ?>
         </div>
         <div id="searchRes" class="hidden">
             <!--<div style="border-bottom: 3px solid #cb47f1; font-size: 18px">

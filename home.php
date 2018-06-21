@@ -19,6 +19,7 @@ include "authCheck.php";
     async defer></script>
     <link rel="stylesheet" type="text/css" href="./static/css/shared.css">
     <link rel="stylesheet" type="text/css" href="./static/css/home.css">
+    <script src="js/calNotifs.js" defer></script>
 </head>
 <body>
     <nav id="topnav">
@@ -30,11 +31,11 @@ include "authCheck.php";
             <ul id="suggestions" class="hidden">
             </ul>
         </div>
-        <button id="notifs" class="general-button" type="button" data-count="3">
+        <!--<button id="notifs" class="general-button" type="button" data-count="3">
             <i class="far fa-bell fa-lg"></i>
-        </button>
+        </button>-->
         <span style="color: #fff">Hi, <?php echo $_SESSION['username']; ?>!</span>
-        <span><i class="fas fa-cog"></i><a href="account.html">Settings</a></span>
+<!--        <span><i class="fas fa-cog"></i><a href="account.html">Settings</a></span>-->
         <span><i class="fas fa-sign-out-alt"></i><a href="login.php">Logout</a></span>
     </nav>
     <div class="sidenav">
@@ -46,6 +47,10 @@ include "authCheck.php";
             <!--<div style="border-bottom: 3px solid #cb47f1; font-size: 18px">
                 Results for <h3 style="display: inline"></h3>
             </div>-->
+        </div>
+        <div id="calNotifs">
+            <h2>Calendar matches</h2>
+            <?php include "calNotifs.php"; ?>
         </div>
         <div id="activities">
             <!-- <a href="#"> -->

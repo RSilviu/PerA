@@ -17,7 +17,7 @@ while ($activity = $stmt->fetch()) {
     $rss .= "
 <item>
      <title>$actName</title>
-     <link>others.php?id=person_id</link>
+     <link>others.php#$personId</link>
      <description>$actDesc</description>
 </item>";
 }

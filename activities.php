@@ -14,6 +14,8 @@ session_start();
     <script defer src="./static/fontawesome/fontawesome-all.js"></script>
     <script src="js/ajax.js" async></script>
     <script src="./static/activities.js" async></script>
+    <script src="js/addToGroup.js" async></script>
+    <script src="js/showRelation.js" async></script>
     <script src="js/search.js" async></script>
     <script src="js/activities.js" async></script>
 </head>
@@ -27,10 +29,11 @@ session_start();
             <ul id="suggestions" class="hidden">
             </ul>
         </div>
-        <button id="notifs" class="general-button" type="button" data-count="3">
+<!--        <button id="notifs" class="general-button" type="button" data-count="3">
             <i class="far fa-bell fa-lg"></i>
-        </button>
-        <span><i class="fas fa-cog"></i><a href="account.html">Settings</a></span>
+        </button>-->
+        <span style="color: #fff">Hi, <?php echo $_SESSION['username']; ?>!</span>
+<!--        <span><i class="fas fa-cog"></i><a href="account.html">Settings</a></span>-->
         <span><i class="fas fa-sign-out-alt"></i><a href="login.php">Logout</a></span>
     </nav>
     <div class="sidenav">
@@ -60,7 +63,7 @@ session_start();
                     08:00
                 </div>
                 <div class="table-column" data-hour="8" data-day="Mon">
-                    Cafea
+
                 </div>
                 <div class="table-column" data-hour="8" data-day="Tue">
 
@@ -69,7 +72,7 @@ session_start();
 
                 </div>
                 <div class="table-column" data-hour="8" data-day="Thu">
-                    Cafea
+
                 </div>
                 <div class="table-column" data-hour="8" data-day="Fri">
 
@@ -86,7 +89,7 @@ session_start();
                     10:00
                 </div>
                 <div class="table-column" data-hour="10" data-day="Mon">
-                    PSH
+
                 </div>
                 <div class="table-column"  data-hour="10" data-day="Tue">
 
@@ -98,10 +101,10 @@ session_start();
 
                 </div>
                 <div class="table-column" data-hour="10" data-day="Fri">
-                    PBR
+
                 </div>
                 <div class="table-column" data-hour="10" data-day="Sat">
-                    Plimbare
+
                 </div>
                 <div class="table-column" data-hour="10" data-day="Sun">
 
@@ -112,7 +115,7 @@ session_start();
                     12:00
                 </div>
                 <div class="table-column" data-hour="12" data-day="Mon">
-                    CN
+
                 </div>
                 <div class="table-column" data-hour="12" data-day="Tue">
 
@@ -121,7 +124,7 @@ session_start();
 
                 </div>
                 <div class="table-column" data-hour="12" data-day="Thu">
-                    Java
+
                 </div>
                 <div class="table-column" data-hour="12" data-day="Fri">
 
@@ -147,10 +150,10 @@ session_start();
 
                 </div>
                 <div class="table-column" data-hour="14" data-day="Thu">
-                    TW
+
                 </div>
                 <div class="table-column" data-hour="14" data-day="Fri">
-                    GPC
+
                 </div>
                 <div class="table-column" data-hour="14" data-day="Sat">
 
@@ -164,7 +167,7 @@ session_start();
                     16:00
                 </div>
                 <div class="table-column" data-hour="16" data-day="Mon">
-                    POO
+
                 </div>
                 <div class="table-column" data-hour="16" data-day="Tue">
 
@@ -173,7 +176,7 @@ session_start();
 
                 </div>
                 <div class="table-column" data-hour="16" data-day="Thu">
-                    Fotbal
+
                 </div>
                 <div class="table-column" data-hour="16" data-day="Fri">
 
@@ -199,7 +202,7 @@ session_start();
 
                 </div>
                 <div class="table-column" data-hour="18" data-day="Thu">
-                    Bere
+
                 </div>
                 <div class="table-column"  data-hour="18" data-day="Fri">
 
@@ -250,6 +253,7 @@ session_start();
             <div class="day-bar">Friday</div>
             <div class="day-bar">Saturday</div>
             <div class="day-bar">Sunday</div>
+            <p style="font-size: 14px; margin-top: 50px;"><strong>Purple</strong> means type of work activities, <strong>Green</strong> means leisure/relax.</p>
         </div>
 
     </div>

@@ -23,8 +23,8 @@
     		sign up
     	</div>
 		<form action="auth/doSignup.php" method="post">
-			<input type="text" name="First-name" placeholder="First Name" class="login-input">
-			<input type="text" name="Last-name" placeholder="Last Name" class="login-input">
+			<!--<input type="text" name="First-name" placeholder="First Name" class="login-input">
+			<input type="text" name="Last-name" placeholder="Last Name" class="login-input">-->
 			<input type="text" name="Username" placeholder="Username" class="login-input" required>
 			<input id="email" type="email" name="Email" placeholder="Email" class="login-input" required>
 			<input type="password" name="Password" placeholder="Password" class="login-input" required>

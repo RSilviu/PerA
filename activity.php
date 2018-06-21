@@ -22,46 +22,56 @@
         fieldset {
             width: 20%;
         }
-        input[disabled] {
+        input[readonly] {
             text-align: center;
         }
     </style>
     <link rel="stylesheet" href="static/css/timePicker.css">
 </head>
 <body>
-    <h3>New activity</h3>
-    <form action="createActivity.php" method="post">
+    <h3><?php if (isset($_REQUEST['id'])) echo 'Modify activity';
+    else echo 'New activity'; ?></h3>
+    <form action="<?php if (isset($_REQUEST['id'])) echo 'updateActivity.php?id='.$_REQUEST['id'];
+    else echo 'createActivity.php';?>" method="post">
         <fieldset>
             <legend>Type</legend>
             <div>
                 <input type="radio" id="t1"
-                       name="type" value="0" checked>
+                       name="type" value="0" <?php if (! isset($_REQUEST['type']) || $_REQUEST['type'] == TYPE_RELAX) echo 'checked'; ?>>
                 <label for="t1">relax</label>
 
                 <input type="radio" id="t2"
-                       name="type" value="1">
+                       name="type" value="1" <?php if (isset($_REQUEST['type']) && $_REQUEST['type'] == TYPE_WORK) echo 'checked'; ?>>
                 <label for="t2">work</label>
             </div>
             <br>
         </fieldset>
         <br>
         <label for="name">name</label>
-        <input type="text" id="name" name="name" autocomplete="off">
+        <input required type="text" id="name" name="name" autocomplete="off"
+        value="<?php if (isset($_REQUEST['name'])) echo $_REQUEST['name']; ?>">
         <br><br>
         <label for="desc">description</label><br>
-        <textarea name="description" id="desc" cols="30" rows="10"></textarea>
+        <textarea name="description" id="desc" cols="30" rows="10"><?php if (isset($_REQUEST['description'])) echo $_REQUEST['description']; ?>
+        </textarea>
         <br><br>
         <label for="autocomplete">place</label>
-        <input id="autocomplete" name="place" onFocus="geolocate()" type="text">
-        <input type="hidden" name="place_id" id="place_id">
-        <input type="hidden" name="lat" id="lat">
-        <input type="hidden" name="lng" id="lng">
+        <input required id="autocomplete" name="place" onFocus="geolocate()" type="text"
+        value="<?php if (isset($_REQUEST['place'])) echo $_REQUEST['place']; ?>">
+        <input type="hidden" name="place_id" id="place_id"
+        value="<?php if (isset($_REQUEST['place_id'])) echo $_REQUEST['place_id']; ?>">
+        <input type="hidden" name="lat" id="lat"
+        value="<?php if (isset($_REQUEST['lat'])) echo $_REQUEST['lat']; ?>">
+        <input type="hidden" name="lng" id="lng"
+        value="<?php if (isset($_REQUEST['lng'])) echo $_REQUEST['lng']; ?>">
         <br><br>
 
         <label for="dayOfTheWeek">day (i.e Mon)</label>
-        <input type="text" name="day" id="dayOfTheWeek" value="<?php echo $_REQUEST['day'] ?>" readonly><br><br>
+        <input type="text" name="day" id="dayOfTheWeek"
+               value="<?php if (isset($_REQUEST['day'])) echo $_REQUEST['day']; ?>" readonly><br><br>
         <label for="hourOfDay">hour (8:00 - 18:00)</label>
-        <input type="text" name="hour" id="hourOfDay" value="<?php echo $_REQUEST['hour'] ?>" readonly>
+        <input type="text" name="hour" id="hourOfDay"
+               value="<?php if (isset($_REQUEST['hour'])) echo $_REQUEST['hour']; ?>" readonly>
         <br><br>
 
       <!--<input type="hidden" name="tz_minutes" id="tz">
@@ -170,12 +180,16 @@
 
         <label for="periodicity">periodicity</label>
         <select name="periodicity" id="periodicity">
-            <option value="0" selected>None</option>
-            <option value="1">Daily</option>
-            <option value="2">Weekly</option>
+            <option value="0"
+                <?php if (! isset($_REQUEST['periodicity']) || $_REQUEST['periodicity'] == PERIODICITY_NONE) echo 'selected'; ?>>None</option>
+            <option value="1"
+                <?php if (isset($_REQUEST['periodicity']) && $_REQUEST['periodicity'] == PERIODICITY_DAILY) echo 'selected'; ?>>Daily</option>
+            <option value="2"
+                <?php if (isset($_REQUEST['periodicity']) && $_REQUEST['periodicity'] == PERIODICITY_WEEKLY) echo 'selected'; ?>>Weekly</option>
         </select>
         <br><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="<?php if (isset($_REQUEST['id'])) echo 'Update';
+        else echo 'Create'; ?>">
         <br><br>
     </form>
     <script>

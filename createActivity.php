@@ -1,9 +1,9 @@
 <?php
 session_start();
 include "routes.php";
-/*if (! isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] !== ACTIVITY_ROUTE) {
+if (! isset($_SERVER['HTTP_REFERER'])) { // || $_SERVER['HTTP_REFERER'] !== ACTIVITY_ROUTE) {
     die();
-}*/
+}
 $userId = $_SESSION['uid'];
 $type = $_POST['type'];
 $name = $_POST['name'];
